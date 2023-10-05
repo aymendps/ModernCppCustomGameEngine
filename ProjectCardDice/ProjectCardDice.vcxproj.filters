@@ -21,21 +21,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SDLWindowDestroyer.cpp">
+    <ClCompile Include="src\CustomDestroyers\SDLWindowDestroyer.cpp">
       <Filter>Source Files\Custom Destroyers</Filter>
     </ClCompile>
-    <ClCompile Include="SDLRendererDestroyer.cpp">
+    <ClCompile Include="src\CustomDestroyers\SDLRendererDestroyer.cpp">
       <Filter>Source Files\Custom Destroyers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SDLWindowDestroyer.h">
+    <ClInclude Include="src\CustomDestroyers\SDLWindowDestroyer.h">
       <Filter>Header Files\Custom Destroyers</Filter>
     </ClInclude>
-    <ClInclude Include="SDLRendererDestroyer.h">
+    <ClInclude Include="src\CustomDestroyers\SDLRendererDestroyer.h">
       <Filter>Header Files\Custom Destroyers</Filter>
     </ClInclude>
   </ItemGroup>

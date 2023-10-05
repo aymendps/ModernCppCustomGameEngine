@@ -1,7 +1,7 @@
 #include <SDL.h>
 #include <memory>
-#include "SDLWindowDestroyer.h"
-#include "SDLRendererDestroyer.h"
+#include "CustomDestroyers/SDLWindowDestroyer.h"
+#include "CustomDestroyers/SDLRendererDestroyer.h"
 
 inline const char* const GAME_TITLE = "Project Card Dice";
 inline int const GAME_HEIGHT = 1080;

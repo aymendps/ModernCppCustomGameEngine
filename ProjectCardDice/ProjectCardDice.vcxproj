@@ -131,13 +131,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="SDLRendererDestroyer.cpp" />
-    <ClCompile Include="SDLWindowDestroyer.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\CustomDestroyers\SDLRendererDestroyer.cpp" />
+    <ClCompile Include="src\CustomDestroyers\SDLWindowDestroyer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SDLRendererDestroyer.h" />
-    <ClInclude Include="SDLWindowDestroyer.h" />
+    <ClInclude Include="src\CustomDestroyers\SDLRendererDestroyer.h" />
+    <ClInclude Include="src\CustomDestroyers\SDLWindowDestroyer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
