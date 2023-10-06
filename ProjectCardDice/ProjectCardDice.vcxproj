@@ -146,14 +146,10 @@
     <ClCompile Include="src\Core\Game.cpp" />
     <ClCompile Include="src\CustomDestroyers\GameDestroyer.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\CustomDestroyers\SDLRendererDestroyer.cpp" />
-    <ClCompile Include="src\CustomDestroyers\SDLWindowDestroyer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Core\Game.h" />
     <ClInclude Include="src\CustomDestroyers\GameDestroyer.h" />
-    <ClInclude Include="src\CustomDestroyers\SDLRendererDestroyer.h" />
-    <ClInclude Include="src\CustomDestroyers\SDLWindowDestroyer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

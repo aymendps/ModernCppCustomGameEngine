@@ -2,8 +2,6 @@
 #include <SDL.h>
 #include <memory>
 #include <iostream>
-#include "../CustomDestroyers/SDLWindowDestroyer.h"
-#include "../CustomDestroyers/SDLRendererDestroyer.h"
 
 class Game {
 	friend struct GameDestroyer;
@@ -40,7 +38,7 @@ public:
 	/// <summary>
 	/// 
 	/// </summary>
-	void Clean();
+	void Destroy();
 
 	/// <summary>
 	/// Returns true if the game is running, otherwise false
@@ -48,8 +46,8 @@ public:
 	bool IsRunning() const { return _isRunning; }
 
 private:
-	std::unique_ptr<SDL_Window, SDLWindowDestroyer> _window;
-	std::unique_ptr<SDL_Renderer, SDLRendererDestroyer> _renderer;
+	SDL_Window* _window;
+	SDL_Renderer* _renderer;
 	bool _isRunning;
 };
 
