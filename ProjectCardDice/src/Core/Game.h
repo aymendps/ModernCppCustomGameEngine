@@ -29,7 +29,7 @@ public:
 	/// <summary>
 	/// 
 	/// </summary>
-	void Update(float deltaTime);
+	void Update(const float deltaTime);
 
 	/// <summary>
 	/// 
@@ -37,7 +37,7 @@ public:
 	void Render();
 
 	/// <summary>
-	/// 
+	/// Cleans up the resources used by the game, destroying the game window and renderer in the process
 	/// </summary>
 	void Destroy();
 

@@ -30,12 +30,24 @@
     <ClCompile Include="src\CustomDestroyers\GameDestroyer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Core\TextureManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CustomDestroyers\SDL_TextureDestroyer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Core\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\CustomDestroyers\GameDestroyer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\TextureManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CustomDestroyers\SDL_TextureDestroyer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

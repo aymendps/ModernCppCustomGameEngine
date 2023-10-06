@@ -143,13 +143,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\CustomDestroyers\SDL_TextureDestroyer.cpp" />
     <ClCompile Include="src\Core\Game.cpp" />
     <ClCompile Include="src\CustomDestroyers\GameDestroyer.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Core\TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\CustomDestroyers\SDL_TextureDestroyer.h" />
     <ClInclude Include="src\Core\Game.h" />
     <ClInclude Include="src\CustomDestroyers\GameDestroyer.h" />
+    <ClInclude Include="src\Core\TextureManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -29,7 +29,6 @@ void Game::Init(const char* title, int xpos, int ypos, int width, int height, bo
 		_renderer = SDL_CreateRenderer(_window, -1, 0);
 
 		if (_renderer) {
-			SDL_SetRenderDrawColor(_renderer, 0, 255, 0, 255);
 			std::cout << "Game Renderer was created!" << std::endl;
 		}
 
@@ -58,7 +57,7 @@ void Game::HandleEvents()
 	}
 }
 
-void Game::Update(float deltaTime)
+void Game::Update(const float deltaTime)
 {
 	std::cout << "Updating... (deltaTime = " << deltaTime << ")" << std::endl;
 }
