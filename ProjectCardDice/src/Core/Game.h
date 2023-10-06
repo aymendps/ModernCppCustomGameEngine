@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <memory>
 #include <iostream>
+#include <iomanip>
 
 class Game {
 	friend struct GameDestroyer;
@@ -28,7 +29,7 @@ public:
 	/// <summary>
 	/// 
 	/// </summary>
-	void Update();
+	void Update(float deltaTime);
 
 	/// <summary>
 	/// 

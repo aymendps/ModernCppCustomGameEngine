@@ -58,9 +58,9 @@ void Game::HandleEvents()
 	}
 }
 
-void Game::Update()
+void Game::Update(float deltaTime)
 {
-	std::cout << "Updating..." << std::endl;
+	std::cout << "Updating... (deltaTime = " << deltaTime << ")" << std::endl;
 }
 
 void Game::Render()
