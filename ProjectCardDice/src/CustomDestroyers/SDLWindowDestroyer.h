@@ -1,7 +1,9 @@
 #pragma once
+#include <SDL.h>
+#include <iostream>
 
 struct SDLWindowDestroyer
 {
-	void operator()(struct SDL_Window* window);
+	void operator()(SDL_Window* window);
 };
 
