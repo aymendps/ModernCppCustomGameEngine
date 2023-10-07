@@ -22,17 +22,18 @@ public:
 	void Init(const char* title, int xpos, int ypos, int width, int height, bool isFullscreen);
 
 	/// <summary>
-	/// 
+	/// Handles the events of the game, such as user input and window events
 	/// </summary>
 	void HandleEvents();
 
 	/// <summary>
-	/// 
+	/// Runs every frame and updates the data of the game
 	/// </summary>
+	/// <param name="deltaTime">The interval in seconds from the last frame to the current one</param>
 	void Update(const float deltaTime);
 
 	/// <summary>
-	/// 
+	/// Runs every frame and renders the game and should be called after updating the game's data
 	/// </summary>
 	void Render();
 

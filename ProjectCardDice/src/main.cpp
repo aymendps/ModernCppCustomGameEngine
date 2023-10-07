@@ -3,10 +3,10 @@
 #include "Core/Game.h"
 #include "CustomDestroyers/GameDestroyer.h"
 
-const char* const GAME_TITLE = "Project Card Dice";
-int const GAME_HEIGHT = 1080;
-int const GAME_WIDTH = 1920;
-bool const GAME_FULLSCREEN = true;
+constexpr const char* GAME_TITLE = "Project Card Dice";
+constexpr int GAME_HEIGHT = 1080;
+constexpr int GAME_WIDTH = 1920;
+constexpr bool GAME_FULLSCREEN = true;
 
 int main(int argc, char* argv[])
 {
