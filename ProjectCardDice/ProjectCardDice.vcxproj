@@ -70,16 +70,28 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Dev\SDL2_image\include;C:\Dev\SDL2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Dev\SDL2\lib\x86;C:\Dev\SDL2_image\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Dev\SDL2_image\include;C:\Dev\SDL2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Dev\SDL2\lib\x86;C:\Dev\SDL2_image\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Dev\SDL2_image\include;C:\Dev\SDL2\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Dev\SDL2\lib\x86;C:\Dev\SDL2_image\lib\x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>shell32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -104,14 +116,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Dev\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Dev\SDL2_image\include;C:\Dev\SDL2\include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Dev\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Dev\SDL2\lib\x86;C:\Dev\SDL2_image\lib\x86</AdditionalLibraryDirectories>
+      <AdditionalDependencies>shell32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -131,17 +143,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Core\ECS\EntityManager.cpp" />
+    <ClCompile Include="src\Core\ECS\Entity.cpp" />
+    <ClCompile Include="src\Core\ECS\Component.cpp" />
+    <ClCompile Include="src\CustomDestroyers\SDL_TextureDestroyer.cpp" />
     <ClCompile Include="src\Core\Game.cpp" />
     <ClCompile Include="src\CustomDestroyers\GameDestroyer.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\CustomDestroyers\SDLRendererDestroyer.cpp" />
-    <ClCompile Include="src\CustomDestroyers\SDLWindowDestroyer.cpp" />
+    <ClCompile Include="src\Core\TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Core\ECS\EntityManager.h" />
+    <ClInclude Include="src\Core\ECS\Entity.h" />
+    <ClInclude Include="src\Core\ECS\Component.h" />
+    <ClInclude Include="src\CustomDestroyers\SDL_TextureDestroyer.h" />
     <ClInclude Include="src\Core\Game.h" />
     <ClInclude Include="src\CustomDestroyers\GameDestroyer.h" />
-    <ClInclude Include="src\CustomDestroyers\SDLRendererDestroyer.h" />
-    <ClInclude Include="src\CustomDestroyers\SDLWindowDestroyer.h" />
+    <ClInclude Include="src\Core\TextureManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

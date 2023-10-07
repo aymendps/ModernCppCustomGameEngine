@@ -1,6 +1,6 @@
 #include "Game.h"
 
-Game::Game() : _isRunning {false}
+Game::Game() : _isRunning {false}, _window {nullptr}, _renderer {nullptr}
 {
 }
 
@@ -17,8 +17,8 @@ void Game::Init(const char* title, int xpos, int ypos, int width, int height, bo
 
 		std::cout << "Creating Game Window..." << std::endl;
 
-		_window = std::unique_ptr<SDL_Window, SDLWindowDestroyer>(SDL_CreateWindow(title, xpos, ypos, width, height,
-			isFullscreen ? SDL_WINDOW_FULLSCREEN_DESKTOP : 0));
+		_window = SDL_CreateWindow(title, xpos, ypos, width, height,
+			isFullscreen ? SDL_WINDOW_FULLSCREEN_DESKTOP : 0);
 
 		if (_window) {
 			std::cout << "Game Window was created!" << std::endl;
@@ -26,10 +26,9 @@ void Game::Init(const char* title, int xpos, int ypos, int width, int height, bo
 
 		std::cout << "Creating Game Renderer..." << std::endl;
 
-		_renderer = std::unique_ptr<SDL_Renderer, SDLRendererDestroyer>(SDL_CreateRenderer(_window.get(), -1, 0));
+		_renderer = SDL_CreateRenderer(_window, -1, 0);
 
 		if (_renderer) {
-			SDL_SetRenderDrawColor(_renderer.get(), 0, 255, 0, 255);
 			std::cout << "Game Renderer was created!" << std::endl;
 		}
 
@@ -58,20 +57,28 @@ void Game::HandleEvents()
 	}
 }
 
-void Game::Update()
+void Game::Update(const float deltaTime)
 {
-	std::cout << "Updating..." << std::endl;
+	std::cout << "Updating... (deltaTime = " << deltaTime << ")" << std::endl;
 }
 
 void Game::Render()
 {
-	SDL_RenderClear(_renderer.get());
-	SDL_RenderPresent(_renderer.get());
+	SDL_RenderClear(_renderer);
+	SDL_RenderPresent(_renderer);
 }
 
-void Game::Clean()
+void Game::Destroy()
 {
-	std::cout << "Cleaning game..." << std::endl;
+	std::cout << "Destroying Game Window..." << std::endl;
+	SDL_DestroyWindow(_window);
+	std::cout << "Game Window was destroyed!" << std::endl;
+
+	std::cout << "Destroying Game Renderer..." << std::endl;
+	SDL_DestroyRenderer(_renderer);
+	std::cout << "Game Renderer was destroyed!" << std::endl;
+
+	std::cout << "Destroying SDL..." << std::endl;
 	SDL_Quit();
-	std::cout << "Game was cleaned!" << std::endl;
+	std::cout << "SDL was destroyed!" << std::endl;
 }

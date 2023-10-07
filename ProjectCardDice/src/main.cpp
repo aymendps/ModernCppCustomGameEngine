@@ -3,10 +3,10 @@
 #include "Core/Game.h"
 #include "CustomDestroyers/GameDestroyer.h"
 
-inline const char* const GAME_TITLE = "Project Card Dice";
-inline int const GAME_HEIGHT = 1080;
-inline int const GAME_WIDTH = 1920;
-inline bool const GAME_FULLSCREEN = true;
+constexpr const char* GAME_TITLE = "Project Card Dice";
+constexpr int GAME_HEIGHT = 1080;
+constexpr int GAME_WIDTH = 1920;
+constexpr bool GAME_FULLSCREEN = true;
 
 int main(int argc, char* argv[])
 {
@@ -14,10 +14,19 @@ int main(int argc, char* argv[])
 	
 	game->Init(GAME_TITLE, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, GAME_WIDTH, GAME_HEIGHT, GAME_FULLSCREEN);
 
+	Uint64 oldTime = SDL_GetTicks64();
+
 	while (game->IsRunning()) {
+		Uint64 newTime = SDL_GetTicks64();
+		float deltaTime = (newTime - oldTime) / 1000.0f;
+
 		game->HandleEvents();
-		game->Update();
+		game->Update(deltaTime);
 		game->Render();
+
+		SDL_Delay(1);
+
+		oldTime = newTime;
 	}
 
 	return 0;
