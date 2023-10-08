@@ -1,6 +1,9 @@
 #pragma once
 #include <bitset>
 #include <iostream>
+#include <array>
+
+class Component;
 
 using ComponentTypeID = size_t;
  
@@ -12,12 +15,13 @@ inline ComponentTypeID GetComponentTypeID() {
 
 // Returns the unique ID for each type of component
 template <typename T> 
-inline ComponentTypeID GetComponentTypeID() {
+inline ComponentTypeID GetComponentTypeID() noexcept {
+	static_assert (std::is_base_of<Component, T>::value, "");
 	static ComponentTypeID uniqueTypeID = GetComponentTypeID();
 	static bool ShouldLog = true;
 
 	if (ShouldLog) {
-		std::cout << "Registered component " << typeid(T).name() << "with unique ID of " << uniqueTypeID << std::endl;
+		std::cout << "Registered component " << typeid(T).name() << " with unique ID of " << uniqueTypeID << std::endl;
 		ShouldLog = false;
 	}
 
@@ -28,10 +32,10 @@ constexpr size_t maxComponentTypes = 32;
 
 // When a component is added to an entity, the bit at its index (ID) in the bitset is set to 1, otherwise it is 0.
 // This allows us to quickly check if an entity has a component or not.
-using ComponentBitset = std::bitset<maxComponentTypes>();
+using ComponentBitset = std::bitset<maxComponentTypes>;
 
 // Using the index (ID) of the component type, we can access the component from the array.
-using ComponentArray = std::array<class Component*, maxComponentTypes>();
+using ComponentArray = std::array<Component*, maxComponentTypes>;
 
 class Entity;
 
@@ -59,7 +63,7 @@ public:
 	/// </summary>
 	virtual void Render() = 0;
 
-private:
+protected:
 	Entity* _owner;
 };
 

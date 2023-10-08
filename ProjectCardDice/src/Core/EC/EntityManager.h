@@ -4,8 +4,13 @@
 class EntityManager
 {
 public:
-	EntityManager();
-	~EntityManager();
+	EntityManager(EntityManager& other) = delete;
+	void operator=(const EntityManager&) = delete;
+
+	static EntityManager& GetInstance() {
+		static EntityManager instance;
+		return instance;
+	}
 
 	/// <summary>
 	/// Runs every frame and updates all entities
@@ -30,5 +35,7 @@ public:
 
 private:
 	std::vector<std::unique_ptr<Entity>> _entities;
+
+	EntityManager() {};
 };
 

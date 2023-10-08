@@ -7,6 +7,8 @@
 class Game {
 	friend struct GameDestroyer;
 public:
+	static SDL_Renderer* renderer;
+
 	Game();
 	~Game();
 
@@ -49,7 +51,6 @@ public:
 
 private:
 	SDL_Window* _window;
-	SDL_Renderer* _renderer;
 	bool _isRunning;
 };
 

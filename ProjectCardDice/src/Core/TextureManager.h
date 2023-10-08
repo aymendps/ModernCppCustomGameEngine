@@ -11,6 +11,8 @@ public:
 	/// <param name="filePath">Path to the file to be loaded</param>
 	/// <param name="renderer">Pointer to the game's renderer</param>
 	/// <returns>Pointer to the loaded texture</returns>
-	static SDL_Texture* const LoadTexture(const char* filePath, SDL_Renderer* renderer);
+	static SDL_Texture* const LoadTexture(const char* filePath);
+
+	static void RenderTexture(SDL_Texture* const texture, SDL_Rect* const destination, SDL_RendererFlip flip = SDL_FLIP_NONE);
 };
 
