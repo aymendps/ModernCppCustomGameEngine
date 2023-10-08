@@ -24,6 +24,6 @@ public:
 private:
 	TransformComponent* _transform;
 	std::unique_ptr<SDL_Texture, SDL_TextureDestroyer> _texture;
-	SDL_Rect _sourceRect, _destinationRect;
+	SDL_Rect _destinationRect;
 };
 

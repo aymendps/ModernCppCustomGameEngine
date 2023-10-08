@@ -1,13 +1,5 @@
 #include "EntityManager.h"
 
-EntityManager::EntityManager()
-{
-}
-
-EntityManager::~EntityManager()
-{
-}
-
 void EntityManager::Update(const float deltaTime)
 {
 	for (auto& entity : _entities) {

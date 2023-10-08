@@ -13,6 +13,6 @@ public:
 	/// <returns>Pointer to the loaded texture</returns>
 	static SDL_Texture* const LoadTexture(const char* filePath);
 
-	static void RenderTexture(SDL_Texture* const texture, SDL_Rect* const source, SDL_Rect* const destination);
+	static void RenderTexture(SDL_Texture* const texture, SDL_Rect* const destination, SDL_RendererFlip flip = SDL_FLIP_NONE);
 };
 

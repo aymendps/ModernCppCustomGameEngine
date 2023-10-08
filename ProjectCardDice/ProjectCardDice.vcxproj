@@ -167,6 +167,9 @@
     <ClInclude Include="src\Core\EC\Components\TransformComponent.h" />
     <ClInclude Include="src\Core\Math\Vector2D.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\pic.jpg" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

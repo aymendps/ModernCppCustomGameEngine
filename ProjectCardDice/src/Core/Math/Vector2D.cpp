@@ -182,6 +182,14 @@ Vector2D& Vector2D::operator/=(const float& i)
 	return *this;
 }
 
+Vector2D& Vector2D::operator=(const Vector2D& vec)
+{
+    this->x = vec.x;
+	this->y = vec.y;
+
+	return *this;
+}
+
 std::ostream& operator<<(std::ostream& stream, const Vector2D& vec)
 {
 	stream << "(" << vec.x << ", " << vec.y << ")";

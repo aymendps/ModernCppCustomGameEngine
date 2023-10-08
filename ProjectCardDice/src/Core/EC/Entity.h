@@ -48,19 +48,20 @@ public:
 	template <typename T, typename... TArgs>
 	T& AddComponent(TArgs&&... args) {
 		// Create a new component and set it's owner to this entity
-		std::unique_ptr<Component> componentPtr = std::make_unique<T>(std::forward<TArgs>(args)...);
+		std::unique_ptr<T> componentPtr = std::make_unique<T>(std::forward<TArgs>(args)...);
 		componentPtr->_owner = this;
 
-		// Set signature to true to indicate that this entity has this component
+		// Update the component pointers and signatures
+		auto rawPtr = componentPtr.get();
 		ComponentTypeID ID = GetComponentTypeID<T>();
-		_componentPointers[ID] = componentPtr.get();
+		_componentPointers[ID] = rawPtr;
 		_componentSignatures[ID] = true;
 
 		componentPtr->Init();
 
-		// Add the component to the vector of components and return a reference to it
 		_components.push_back(std::move(componentPtr));
-		return *_components.back();
+
+		return *rawPtr;
 	}
 
 	/// <summary>
