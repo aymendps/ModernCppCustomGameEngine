@@ -46,14 +46,32 @@ public:
 	/// <param name="...args">The component's constructor arguments</param>
 	/// <returns>Reference to the added component</returns>
 	template <typename T, typename... TArgs>
-	T& AddComponent(TArgs&&... args);
+	T& AddComponent(TArgs&&... args) {
+		// Create a new component and set it's owner to this entity
+		std::unique_ptr<Component> componentPtr = std::make_unique<T>(std::forward<TArgs>(args)...);
+		componentPtr->_owner = this;
+
+		// Set signature to true to indicate that this entity has this component
+		ComponentTypeID ID = GetComponentTypeID<T>();
+		_componentPointers[ID] = componentPtr.get();
+		_componentSignatures[ID] = true;
+
+		componentPtr->Init();
+
+		// Add the component to the vector of components and return a reference to it
+		_components.push_back(std::move(componentPtr));
+		return *_components.back();
+	}
 
 	/// <summary>
 	/// Returns a reference to the component of the given type.
 	/// </summary>
 	/// <typeparam name="T">The component's type</typeparam>
-	template <typename T>
-	T& GetComponent() const;
+	template<typename T> T& GetComponent() const
+	{
+		auto ptr(_componentPointers[GetComponentTypeID<T>()]);
+		return *static_cast<T*>(ptr);
+	}
 
 private:
 	Entity();

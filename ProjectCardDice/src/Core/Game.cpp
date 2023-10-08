@@ -1,6 +1,8 @@
 #include "Game.h"
 
-Game::Game() : _isRunning {false}, _window {nullptr}, _renderer {nullptr}
+SDL_Renderer* Game::renderer = nullptr;
+
+Game::Game() : _isRunning {false}, _window {nullptr}
 {
 }
 
@@ -26,9 +28,9 @@ void Game::Init(const char* title, int xpos, int ypos, int width, int height, bo
 
 		std::cout << "Creating Game Renderer..." << std::endl;
 
-		_renderer = SDL_CreateRenderer(_window, -1, 0);
+		renderer = SDL_CreateRenderer(_window, -1, 0);
 
-		if (_renderer) {
+		if (renderer) {
 			std::cout << "Game Renderer was created!" << std::endl;
 		}
 
@@ -64,8 +66,8 @@ void Game::Update(const float deltaTime)
 
 void Game::Render()
 {
-	SDL_RenderClear(_renderer);
-	SDL_RenderPresent(_renderer);
+	SDL_RenderClear(renderer);
+	SDL_RenderPresent(renderer);
 }
 
 void Game::Destroy()
@@ -75,7 +77,7 @@ void Game::Destroy()
 	std::cout << "Game Window was destroyed!" << std::endl;
 
 	std::cout << "Destroying Game Renderer..." << std::endl;
-	SDL_DestroyRenderer(_renderer);
+	SDL_DestroyRenderer(renderer);
 	std::cout << "Game Renderer was destroyed!" << std::endl;
 
 	std::cout << "Destroying SDL..." << std::endl;
