@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Managers/SceneManager.h"
 
 SDL_Renderer* Game::renderer = nullptr;
 
@@ -34,6 +35,8 @@ void Game::Init(const char* title, int xpos, int ypos, int width, int height, bo
 			std::cout << "Game Renderer was created!" << std::endl;
 		}
 
+		SceneManager::GetInstance().Init();
+
 		_isRunning = true;
 	}
 	else {
@@ -46,27 +49,27 @@ void Game::HandleEvents()
 {
 	SDL_Event event;
 	SDL_PollEvent(&event);
-
 	switch (event.type)
 	{
-	case SDL_QUIT:
 	case SDL_KEYDOWN:
-		_isRunning = false;
+		_isRunning = event.key.keysym.sym != SDLK_ESCAPE;
 		break;
-
 	default:
 		break;
 	}
+	SceneManager::GetInstance().HandleEvents(event);
 }
 
 void Game::Update(const float deltaTime)
 {
-	std::cout << "Updating... (deltaTime = " << deltaTime << ")" << std::endl;
+	//std::cout << "Updating... (deltaTime = " << deltaTime << ")" << std::endl;
+	SceneManager::GetInstance().Update(deltaTime);
 }
 
 void Game::Render()
 {
 	SDL_RenderClear(renderer);
+	SceneManager::GetInstance().Render();
 	SDL_RenderPresent(renderer);
 }
 

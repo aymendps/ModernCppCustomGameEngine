@@ -14,11 +14,11 @@ public:
 	virtual void Update(const float deltaTime) override;
 	virtual void Render() override;
 
-	void SetPosition(const float x, const float y);
-	void SetPosition(const Vector2D& vec);
-	void SetSize(const float w, const float h);
-	void SetSize(const Vector2D& vec);
-	void SetScale(const float scale);
+	TransformComponent& SetPosition(const float x, const float y);
+	TransformComponent& SetPosition(const Vector2D& vec);
+	TransformComponent& SetSize(const float w, const float h);
+	TransformComponent& SetSize(const Vector2D& vec);
+	TransformComponent& SetScale(const float scale);
 
 	const Vector2D& GetPosition() const;
 	const Vector2D& GetSize() const;

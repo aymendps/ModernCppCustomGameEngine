@@ -1,12 +1,14 @@
 #pragma once
-#include "Entity.h"
+#include "../EC/Entity.h"
 
 class EntityManager
 {
 public:
+	// Delete copy/move of singleton instance
 	EntityManager(EntityManager& other) = delete;
 	void operator=(const EntityManager&) = delete;
 
+	// Singleton instance
 	static EntityManager& GetInstance() {
 		static EntityManager instance;
 		return instance;
@@ -36,6 +38,7 @@ public:
 private:
 	std::vector<std::unique_ptr<Entity>> _entities;
 
+	// private constructor because of singleton
 	EntityManager() {};
 };
 

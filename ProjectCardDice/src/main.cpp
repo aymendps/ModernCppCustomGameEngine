@@ -1,6 +1,6 @@
 #include <SDL.h>
 #include <memory>
-#include "Core/Game.h"
+#include "Game.h"
 #include "CustomDestroyers/GameDestroyer.h"
 
 constexpr const char* GAME_TITLE = "Project Card Dice";

@@ -16,7 +16,7 @@ inline ComponentTypeID GetComponentTypeID() {
 // Returns the unique ID for each type of component
 template <typename T> 
 inline ComponentTypeID GetComponentTypeID() noexcept {
-	static_assert (std::is_base_of<Component, T>::value, "");
+	static_assert (std::is_base_of<Component, T>::value, "T must be a subclass of Component");
 	static ComponentTypeID uniqueTypeID = GetComponentTypeID();
 	static bool ShouldLog = true;
 

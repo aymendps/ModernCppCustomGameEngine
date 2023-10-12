@@ -24,7 +24,7 @@ public:
 	/// <summary>
 	/// Destroys the entity and all of its components.
 	/// </summary>
-	void Destroy() { _isActive = false; }
+	void Destroy() { _isActive = false; std::cout << "Destroying Entity that was previously created..." << std::endl; }
 
 	/// <summary>
 	/// Returns whether or not the entity is active.

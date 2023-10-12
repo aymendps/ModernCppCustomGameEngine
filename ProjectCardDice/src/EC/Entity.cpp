@@ -1,6 +1,6 @@
 #include "Entity.h"
 
-Entity::Entity() : _isActive {true}
+Entity::Entity() : _isActive {true}, _componentPointers {}
 {
 }
 

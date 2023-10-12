@@ -1,5 +1,5 @@
 #include "GameDestroyer.h"
-#include "../Core/Game.h"
+#include "../Game.h"
 
 void GameDestroyer::operator()(Game* game)
 {

@@ -2,6 +2,6 @@
 
 struct GameDestroyer
 {
-	void operator()(struct Game* game);
+	void operator()(class Game* game);
 };
 
