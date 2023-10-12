@@ -32,7 +32,9 @@ void SpriteComponent::Render()
 	TextureManager::RenderTexture(_texture.get(), &_destinationRect);
 }
 
-void SpriteComponent::SetTexture(const char* filePath)
+SpriteComponent& SpriteComponent::SetTexture(const char* filePath)
 {
 	_texture.reset(TextureManager::LoadTexture(filePath));
+
+	return *this;
 }

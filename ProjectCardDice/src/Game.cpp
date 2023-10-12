@@ -1,4 +1,6 @@
 #include "Game.h"
+#include "Managers/SceneManager.h"
+#include "Managers/EntityManager.h"
 
 SDL_Renderer* Game::renderer = nullptr;
 
@@ -10,7 +12,7 @@ Game::~Game()
 {
 }
 
-void Game::Init(const char* title, int xpos, int ypos, int width, int height, bool isFullscreen)
+void Game::Init()
 {
 	std::cout << "Initializing SDL..." << std::endl;
 
@@ -19,8 +21,8 @@ void Game::Init(const char* title, int xpos, int ypos, int width, int height, bo
 
 		std::cout << "Creating Game Window..." << std::endl;
 
-		_window = SDL_CreateWindow(title, xpos, ypos, width, height,
-			isFullscreen ? SDL_WINDOW_FULLSCREEN_DESKTOP : 0);
+		_window = SDL_CreateWindow(GAME_TITLE, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 
+			GAME_WIDTH, GAME_HEIGHT, GAME_FULLSCREEN ? SDL_WINDOW_FULLSCREEN_DESKTOP : 0);
 
 		if (_window) {
 			std::cout << "Game Window was created!" << std::endl;
@@ -34,6 +36,10 @@ void Game::Init(const char* title, int xpos, int ypos, int width, int height, bo
 			std::cout << "Game Renderer was created!" << std::endl;
 		}
 
+		SDL_SetRenderDrawBlendMode(Game::renderer, SDL_BLENDMODE_BLEND);
+
+		SceneManager::GetInstance().Init();
+
 		_isRunning = true;
 	}
 	else {
@@ -46,27 +52,26 @@ void Game::HandleEvents()
 {
 	SDL_Event event;
 	SDL_PollEvent(&event);
-
 	switch (event.type)
 	{
-	case SDL_QUIT:
 	case SDL_KEYDOWN:
-		_isRunning = false;
+		_isRunning = event.key.keysym.sym != SDLK_ESCAPE;
 		break;
-
 	default:
 		break;
 	}
+	SceneManager::GetInstance().HandleEvents(event);
 }
 
 void Game::Update(const float deltaTime)
 {
-	std::cout << "Updating... (deltaTime = " << deltaTime << ")" << std::endl;
+	SceneManager::GetInstance().Update(deltaTime);
 }
 
 void Game::Render()
 {
 	SDL_RenderClear(renderer);
+	SceneManager::GetInstance().Render();
 	SDL_RenderPresent(renderer);
 }
 

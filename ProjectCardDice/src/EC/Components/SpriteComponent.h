@@ -1,8 +1,9 @@
 #pragma once
 #include "../Entity.h"
 #include "TransformComponent.h"
-#include "../../TextureManager.h"
-#include "../../../CustomDestroyers/SDL_TextureDestroyer.h"
+#include "../../Managers/TextureManager.h"
+#include "../../CustomDestroyers/SDL_TextureDestroyer.h"
+
 
 class SpriteComponent : public Component
 {
@@ -19,7 +20,7 @@ public:
 	/// Set the texture of the sprite to the one at the given file path
 	/// </summary>
 	/// <param name="filePath">The file path of the texture</param>
-	void SetTexture(const char* filePath);
+	SpriteComponent& SetTexture(const char* filePath);
 
 private:
 	TransformComponent* _transform;

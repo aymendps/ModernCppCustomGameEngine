@@ -13,31 +13,41 @@ TransformComponent::~TransformComponent()
 {
 }
 
-void TransformComponent::SetPosition(const float x, const float y)
+TransformComponent& TransformComponent::SetPosition(const float x, const float y)
 {
 	_position.x = x;
 	_position.y = y;
+
+	return *this;
 }
 
-void TransformComponent::SetPosition(const Vector2D& vec)
+TransformComponent& TransformComponent::SetPosition(const Vector2D& vec)
 {
 	_position = vec;
+
+	return *this;
 }
 
-void TransformComponent::SetSize(const float w, const float h)
+TransformComponent& TransformComponent::SetSize(const float w, const float h)
 {
 	_size.x = w;
 	_size.y = h;
+
+	return *this;
 }
 
-void TransformComponent::SetSize(const Vector2D& vec)
+TransformComponent& TransformComponent::SetSize(const Vector2D& vec)
 {
 	_size = vec;
+
+	return *this;
 }
 
-void TransformComponent::SetScale(const float scale)
+TransformComponent& TransformComponent::SetScale(const float scale)
 {
 	this->_scale = scale;
+
+	return *this;
 }
 
 const Vector2D& TransformComponent::GetPosition() const
