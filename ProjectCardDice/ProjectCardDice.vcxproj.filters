@@ -60,9 +60,6 @@
     <ClCompile Include="src\Managers\SceneManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\CustomDestroyers\SceneDestroyer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Scenes\TestScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -102,9 +99,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Managers\SceneManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CustomDestroyers\SceneDestroyer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Scenes\TestScene.h">

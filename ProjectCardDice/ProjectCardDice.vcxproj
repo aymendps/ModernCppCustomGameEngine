@@ -143,7 +143,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\CustomDestroyers\SceneDestroyer.cpp" />
     <ClCompile Include="src\Managers\SceneManager.cpp" />
     <ClCompile Include="src\Scenes\Scene.cpp" />
     <ClCompile Include="src\EC\Components\SpriteComponent.cpp" />
@@ -160,7 +159,6 @@
     <ClCompile Include="src\Scenes\TestScene.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\CustomDestroyers\SceneDestroyer.h" />
     <ClInclude Include="src\Managers\SceneManager.h" />
     <ClInclude Include="src\Scenes\Scene.h" />
     <ClInclude Include="src\EC\Components\SpriteComponent.h" />

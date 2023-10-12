@@ -7,6 +7,11 @@
 class Game {
 	friend struct GameDestroyer;
 public:
+	static constexpr const char* GAME_TITLE = "Project Card Dice";
+	static constexpr int GAME_HEIGHT = 1080;
+	static constexpr int GAME_WIDTH = 1920;
+	static constexpr bool GAME_FULLSCREEN = true;
+
 	static SDL_Renderer* renderer;
 
 	Game();
@@ -21,7 +26,7 @@ public:
 	/// <param name="width">Width of the game window</param>
 	/// <param name="height">Height of the game window</param>
 	/// <param name="isFullscreen">Whether to start the game window in fullscreen</param>
-	void Init(const char* title, int xpos, int ypos, int width, int height, bool isFullscreen);
+	void Init();
 
 	/// <summary>
 	/// Handles the events of the game, such as user input and window events
