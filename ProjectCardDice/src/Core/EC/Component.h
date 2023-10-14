@@ -21,7 +21,7 @@ inline ComponentTypeID GetComponentTypeID() noexcept {
 	static bool ShouldLog = true;
 
 	if (ShouldLog) {
-		std::cout << "Registered component " << typeid(T).name() << " with unique ID of " << uniqueTypeID << std::endl;
+		std::cout << "\033[36m" << "Registered component " << typeid(T).name() << " with unique ID of " << uniqueTypeID << "\033[0m" << std::endl;
 		ShouldLog = false;
 	}
 

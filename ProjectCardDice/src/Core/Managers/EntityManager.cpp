@@ -45,6 +45,7 @@ Entity& EntityManager::CreateEntity(const std::string uniqueName)
 	}
 
 	auto newEntity { std::shared_ptr<Entity>(new Entity()) };
+	newEntity->_uniqueName = uniqueName;
 
 	// Add the entity to the vector of entities so it can be updated and rendered
 	_entities.push_back(std::move(newEntity));

@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <memory>
+#include <string>
 #include "Component.h"
 
 class Entity
@@ -24,7 +25,7 @@ public:
 	/// <summary>
 	/// Destroys the entity and all of its components.
 	/// </summary>
-	void Destroy() { _isActive = false; std::cout << "Destroying Entity that was previously created..." << std::endl; }
+	void Destroy();
 
 	/// <summary>
 	/// Returns whether or not the entity is active.
@@ -77,6 +78,7 @@ public:
 private:
 	Entity();
 
+	std::string _uniqueName;
 	std::vector<std::unique_ptr<Component>> _components;
 	ComponentArray _componentPointers;
 	ComponentBitset _componentSignatures;

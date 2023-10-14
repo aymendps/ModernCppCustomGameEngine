@@ -21,3 +21,9 @@ void Entity::Render()
 		component->Render();
 	}
 }
+
+void Entity::Destroy()
+{
+	_isActive = false;
+	std::cout << "Destroying Entity: " << "'" << _uniqueName << "'" << std::endl;
+}
