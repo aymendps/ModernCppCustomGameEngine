@@ -1,7 +1,7 @@
 #include <SDL.h>
 #include <memory>
 #include "Game.h"
-#include "CustomDestroyers/GameDestroyer.h"
+#include "Core/CustomDestroyers/GameDestroyer.h"
 
 int main(int argc, char* argv[])
 {

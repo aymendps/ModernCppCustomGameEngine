@@ -1,7 +1,7 @@
 #include "TestScene.h"
-#include "../Managers/SceneManager.h"
-#include "../Managers/EntityManager.h"
-#include "../EC/Components/SpriteComponent.h"
+#include "SceneManager.h"
+#include "../../Core/Managers/EntityManager.h"
+#include "../Components/SpriteComponent.h"
 
 
 TestScene::TestScene(Vector2D position, float speed) : _testEntity{ nullptr }, _testEntityPosition{ position }, _testEntitySpeed{ speed }

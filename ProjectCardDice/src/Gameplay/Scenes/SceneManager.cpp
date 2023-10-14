@@ -1,6 +1,6 @@
 #include "SceneManager.h"
-#include "../Scenes/TestScene.h"
-#include "../Game.h"
+#include "../../Game.h"
+#include "TestScene.h"
 
 SceneManager::SceneManager()
 {

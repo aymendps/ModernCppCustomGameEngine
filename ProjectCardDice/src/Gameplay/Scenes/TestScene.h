@@ -1,6 +1,6 @@
 #pragma once
 #include "Scene.h"
-#include "../Math/Vector2D.h"
+#include "../../Core/Math/Vector2D.h"
 
 class TestScene : public Scene
 {

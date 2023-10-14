@@ -4,7 +4,7 @@
 #include <SDL.h>
 #include <functional>
 #include "../Scenes/Scene.h"
-#include "EntityManager.h"
+#include "../../Core/Managers/EntityManager.h"
 
 
 enum class FadeDirection {

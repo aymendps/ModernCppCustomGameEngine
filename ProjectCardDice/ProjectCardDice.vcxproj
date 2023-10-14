@@ -143,35 +143,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Managers\SceneManager.cpp" />
-    <ClCompile Include="src\Scenes\Scene.cpp" />
-    <ClCompile Include="src\EC\Components\SpriteComponent.cpp" />
-    <ClCompile Include="src\Managers\EntityManager.cpp" />
-    <ClCompile Include="src\EC\Entity.cpp" />
-    <ClCompile Include="src\EC\Component.cpp" />
-    <ClCompile Include="src\CustomDestroyers\SDL_TextureDestroyer.cpp" />
+    <ClCompile Include="src\Gameplay\Collections\CardCollection.cpp" />
+    <ClCompile Include="src\Gameplay\Builders\CardEntityBuilder.cpp" />
+    <ClCompile Include="src\Gameplay\Components\CardComponent.cpp" />
+    <ClCompile Include="src\Gameplay\Scenes\SceneManager.cpp" />
+    <ClCompile Include="src\Gameplay\Scenes\Scene.cpp" />
+    <ClCompile Include="src\Gameplay\Components\SpriteComponent.cpp" />
+    <ClCompile Include="src\Core\Managers\EntityManager.cpp" />
+    <ClCompile Include="src\Core\EC\Entity.cpp" />
+    <ClCompile Include="src\Core\EC\Component.cpp" />
+    <ClCompile Include="src\Core\CustomDestroyers\SDL_TextureDestroyer.cpp" />
     <ClCompile Include="src\Game.cpp" />
-    <ClCompile Include="src\CustomDestroyers\GameDestroyer.cpp" />
+    <ClCompile Include="src\Core\CustomDestroyers\GameDestroyer.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\Managers\TextureManager.cpp" />
-    <ClCompile Include="src\EC\Components\TransformComponent.cpp" />
-    <ClCompile Include="src\Math\Vector2D.cpp" />
-    <ClCompile Include="src\Scenes\TestScene.cpp" />
+    <ClCompile Include="src\Core\Managers\TextureManager.cpp" />
+    <ClCompile Include="src\Gameplay\Components\TransformComponent.cpp" />
+    <ClCompile Include="src\Core\Math\Vector2D.cpp" />
+    <ClCompile Include="src\Gameplay\Scenes\TestScene.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Managers\SceneManager.h" />
-    <ClInclude Include="src\Scenes\Scene.h" />
-    <ClInclude Include="src\EC\Components\SpriteComponent.h" />
-    <ClInclude Include="src\Managers\EntityManager.h" />
-    <ClInclude Include="src\EC\Entity.h" />
-    <ClInclude Include="src\EC\Component.h" />
-    <ClInclude Include="src\CustomDestroyers\SDL_TextureDestroyer.h" />
+    <ClInclude Include="src\Gameplay\Collections\CardCollection.h" />
+    <ClInclude Include="src\Gameplay\Builders\CardEntityBuilder.h" />
+    <ClInclude Include="src\Gameplay\Components\CardComponent.h" />
+    <ClInclude Include="src\Gameplay\Scenes\SceneManager.h" />
+    <ClInclude Include="src\Gameplay\Scenes\Scene.h" />
+    <ClInclude Include="src\Gameplay\Components\SpriteComponent.h" />
+    <ClInclude Include="src\Core\Managers\EntityManager.h" />
+    <ClInclude Include="src\Core\EC\Entity.h" />
+    <ClInclude Include="src\Core\EC\Component.h" />
+    <ClInclude Include="src\Core\CustomDestroyers\SDL_TextureDestroyer.h" />
     <ClInclude Include="src\Game.h" />
-    <ClInclude Include="src\CustomDestroyers\GameDestroyer.h" />
-    <ClInclude Include="src\Managers\TextureManager.h" />
-    <ClInclude Include="src\EC\Components\TransformComponent.h" />
-    <ClInclude Include="src\Math\Vector2D.h" />
-    <ClInclude Include="src\Scenes\TestScene.h" />
+    <ClInclude Include="src\Core\CustomDestroyers\GameDestroyer.h" />
+    <ClInclude Include="src\Core\Managers\TextureManager.h" />
+    <ClInclude Include="src\Gameplay\Components\TransformComponent.h" />
+    <ClInclude Include="src\Core\Math\Vector2D.h" />
+    <ClInclude Include="src\Gameplay\Scenes\TestScene.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\pic.jpg" />

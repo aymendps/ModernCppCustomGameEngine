@@ -1,6 +1,5 @@
 #include "Game.h"
-#include "Managers/SceneManager.h"
-#include "Managers/EntityManager.h"
+#include "Gameplay/Scenes/SceneManager.h"
 
 SDL_Renderer* Game::renderer = nullptr;
 

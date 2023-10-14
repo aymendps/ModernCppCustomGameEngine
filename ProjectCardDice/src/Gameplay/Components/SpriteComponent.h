@@ -1,8 +1,8 @@
 #pragma once
-#include "../Entity.h"
+#include "../../Core/EC/Entity.h"
 #include "TransformComponent.h"
-#include "../../Managers/TextureManager.h"
-#include "../../CustomDestroyers/SDL_TextureDestroyer.h"
+#include "../../Core/Managers/TextureManager.h"
+#include "../../Core/CustomDestroyers/SDL_TextureDestroyer.h"
 
 
 class SpriteComponent : public Component
