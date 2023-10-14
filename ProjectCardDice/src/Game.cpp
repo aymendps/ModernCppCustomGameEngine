@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "Gameplay/Scenes/SceneManager.h"
+#include "Gameplay/Collections/CardCollection.h"
 
 SDL_Renderer* Game::renderer = nullptr;
 
@@ -36,6 +37,8 @@ void Game::Init()
 		}
 
 		SDL_SetRenderDrawBlendMode(Game::renderer, SDL_BLENDMODE_BLEND);
+
+		CardCollection::GetInstance().Init();
 
 		SceneManager::GetInstance().Init();
 

@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Core\Math\Randomizer.cpp" />
     <ClCompile Include="src\Gameplay\Collections\CardCollection.cpp" />
     <ClCompile Include="src\Gameplay\Builders\CardEntityBuilder.cpp" />
     <ClCompile Include="src\Gameplay\Components\CardComponent.cpp" />
@@ -154,7 +155,6 @@
     <ClCompile Include="src\Core\EC\Component.cpp" />
     <ClCompile Include="src\Core\CustomDestroyers\SDL_TextureDestroyer.cpp" />
     <ClCompile Include="src\Game.cpp" />
-    <ClCompile Include="src\Core\CustomDestroyers\GameDestroyer.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Core\Managers\TextureManager.cpp" />
     <ClCompile Include="src\Gameplay\Components\TransformComponent.cpp" />
@@ -162,6 +162,7 @@
     <ClCompile Include="src\Gameplay\Scenes\TestScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Core\Math\Randomizer.h" />
     <ClInclude Include="src\Gameplay\Collections\CardCollection.h" />
     <ClInclude Include="src\Gameplay\Builders\CardEntityBuilder.h" />
     <ClInclude Include="src\Gameplay\Components\CardComponent.h" />
@@ -173,7 +174,6 @@
     <ClInclude Include="src\Core\EC\Component.h" />
     <ClInclude Include="src\Core\CustomDestroyers\SDL_TextureDestroyer.h" />
     <ClInclude Include="src\Game.h" />
-    <ClInclude Include="src\Core\CustomDestroyers\GameDestroyer.h" />
     <ClInclude Include="src\Core\Managers\TextureManager.h" />
     <ClInclude Include="src\Gameplay\Components\TransformComponent.h" />
     <ClInclude Include="src\Core\Math\Vector2D.h" />

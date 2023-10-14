@@ -27,9 +27,6 @@
     <ClCompile Include="src\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\CustomDestroyers\GameDestroyer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Core\Managers\TextureManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -72,12 +69,12 @@
     <ClCompile Include="src\Gameplay\Collections\CardCollection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Core\Math\Randomizer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Core\CustomDestroyers\GameDestroyer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Managers\TextureManager.h">
@@ -120,6 +117,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Gameplay\Collections\CardCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Math\Randomizer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

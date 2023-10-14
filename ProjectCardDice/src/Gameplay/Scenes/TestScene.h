@@ -16,7 +16,8 @@ public:
 	void Destroy() override;
 
 private:
-	class Entity* _testEntity;
+	Entity* _testEntity;
+	Entity* _cardEntity;
     Vector2D _testEntityPosition;
 	float _testEntitySpeed = 0;
 };
