@@ -34,12 +34,13 @@ void Game::Init()
 
 		if (renderer) {
 			std::cout << "Game Renderer was created!" << std::endl;
+			SDL_SetRenderDrawBlendMode(Game::renderer, SDL_BLENDMODE_BLEND);
 		}
 
-		SDL_SetRenderDrawBlendMode(Game::renderer, SDL_BLENDMODE_BLEND);
+		std::cout << "\033[33m" << "Allowing a maximum of " << maxComponentTypes << " component types per entity" << "\033[0m" << std::endl;
+		std::cout << "\033[33m" << "Allowing only 1 instance of each component type per entity" << "\033[0m" << std::endl;
 
 		CardCollection::GetInstance().Init();
-
 		SceneManager::GetInstance().Init();
 
 		_isRunning = true;

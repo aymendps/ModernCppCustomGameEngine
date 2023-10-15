@@ -40,7 +40,7 @@ Entity& EntityManager::CreateEntity(const std::string uniqueName)
 {
 	// Check if an entity with the given unique name already exists
 	if (auto checkEntity = GetEntity(uniqueName); checkEntity != nullptr) {
-		std::cout << "Entity with unique name '" << uniqueName << "' already exists!" << std::endl;
+		std::cout << "\033[31m" << "Entity with unique name '" << uniqueName << "' already exists!" << "\033[0m" << std::endl;
 		return *checkEntity;
 	}
 

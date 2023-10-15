@@ -48,6 +48,12 @@ public:
 	/// <returns>Reference to the added component</returns>
 	template <typename T, typename... TArgs>
 	T& AddComponent(TArgs&&... args) {
+		// Check if the entity already has a component of the given type
+		if (HasComponent<T>()) {
+			std::cout << "\033[31m" << "Entity '" << _uniqueName << "' already has a component of type : " << typeid(T).name() << "\033[0m" << std::endl;
+			return GetComponent<T>();
+		}	
+
 		// Create a new component and set it's owner to this entity
 		std::unique_ptr<T> componentPtr = std::make_unique<T>(std::forward<TArgs>(args)...);
 		componentPtr->_owner = this;

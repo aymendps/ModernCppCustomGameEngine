@@ -1,6 +1,9 @@
 #pragma once
-#include <iostream>
-#include "../../Core/EC/Entity.h"
+#include <unordered_set>
+#include <string>
+
+class Entity;
+enum class CardEntityUniqueID;
 
 class Scene
 {
@@ -16,5 +19,9 @@ public:
 
 protected:
 	// Store pointers to entities created in this scene to destroy them when the scene is destroyed
-	std::vector<Entity*> _createdEntities;
+	std::unordered_set<Entity*> _createdEntities;
+
+	Entity& CreateEntity(const std::string name);
+	Entity& CreateCardEntity(CardEntityUniqueID uniqueID,  const std::string name);
+	Entity& CreateRandomCardEntity(const std::string name);
 };

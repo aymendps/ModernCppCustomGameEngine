@@ -1,8 +1,6 @@
 #include "TestScene.h"
 #include "SceneManager.h"
-#include "../../Core/Managers/EntityManager.h"
 #include "../Components/SpriteComponent.h"
-#include "../Collections/CardCollection.h"
 
 
 TestScene::TestScene(Vector2D position, float speed) :_testEntity { nullptr }, _cardEntity { nullptr }, _testEntityPosition { position }, 
@@ -16,14 +14,15 @@ TestScene::~TestScene()
 
 void TestScene::Init()
 {
-	_testEntity = &EntityManager::GetInstance().CreateEntity("Test Entity");
-	_createdEntities.push_back(_testEntity);
-	// Second call to test what happens when we create an entity with the same name (should return reference to entity above)
+	_testEntity = &CreateEntity("Test Entity");
+	_testEntity = &CreateEntity("Test Entity");
+
 	_testEntity->AddComponent<TransformComponent>().SetPosition(_testEntityPosition).SetSize(_testEntityPosition);
 	_testEntity->AddComponent<SpriteComponent>("assets/pic.jpg");
+	_testEntity->AddComponent<SpriteComponent>("assets/pic.jpg");
 
-	_cardEntity = &CardCollection::GetInstance().CreateRandomCardEntity("Random Card Entity");
-	_createdEntities.push_back(_cardEntity);
+	_cardEntity = &CreateRandomCardEntity("Test Card Entity");
+	_createdEntities.insert(_cardEntity);
 }
 
 void TestScene::HandleEvents(SDL_Event& event)
