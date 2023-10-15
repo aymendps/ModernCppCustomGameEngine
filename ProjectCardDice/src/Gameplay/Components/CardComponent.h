@@ -29,14 +29,26 @@ enum class CardType
 	UNDEFINED
 };
 
+struct CardConfiguration {
+	CardEntityUniqueID uniqueID = CardEntityUniqueID::UNDEFINED;
+	std::string name = "UNDEFINED";
+	std::string description = "UNDEFINED";
+	// first int is the number of dices to roll, second int is the number of sides on the dices
+	std::pair <int, int> diceRoll = { 0, 0 };
+	// first int is the modifier to add to number of dices, second int is the modifier to add to number of sides on the dices
+	std::pair <int, int> diceModifiers = { 0, 0 };
+	CardType cardType = CardType::UNDEFINED;
+	CardTargetType targetType = CardTargetType::UNDEFINED;
+	int cost = 0;
+	std::function<void()> effect = []() {};
+};
+
 class CardComponent : public Component
 {
 	friend class CardEntityBuilder;
 
 public:
-	CardComponent();
-	CardComponent(CardEntityUniqueID uniqueID, std::string name, std::string description, std::pair<int, int> diceRoll, 
-		std::pair<int, int> diceModifiers, CardType cardType, CardTargetType targetType, int cost, std::function<void()> effect);
+	CardComponent(CardConfiguration cardConfiguration);
 	~CardComponent();
 
 	// Inherited via Component
@@ -47,16 +59,6 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const CardComponent& card);
 
 private:
-	CardEntityUniqueID _uniqueID;
-	std::string _name;
-	std::string _description;
-	// first int is the number of dices to roll, second int is the number of sides on the dices
-	std::pair <int, int> _diceRoll;
-	// first int is the modifier to add to number of dices, second int is the modifier to add to number of sides on the dices
-	std::pair <int, int> _diceModifiers;
-	CardType _cardType;
-	CardTargetType _targetType;
-	int _cost;
-	std::function<void()> _effect;
+	CardConfiguration _cardConfiguration;
 };
 

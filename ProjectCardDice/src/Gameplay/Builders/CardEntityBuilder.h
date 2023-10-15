@@ -24,21 +24,9 @@ public:
 	void Register();
 
 private:
-	// The fields of the card
+	CardConfiguration _cardConfiguration;
 
-	CardEntityUniqueID _uniqueID;
-	std::string _name;
-	std::string _description;
-	// first int is the number of dices to roll, second int is the number of sides on the dices
-	std::pair <int, int> _diceRoll;
-	// first int is the modifier to add to number of dices, second int is the modifier to add to number of sides on the dices
-	std::pair <int, int> _diceModifiers;
-	CardType _cardType;
-	CardTargetType _targetType;
-	int _cost;
-	std::function<void()> _effect;
-
-	// Resets the fields of the builder to their default values. This is called after registering the card.
-	void ResetFields();
+	// Resets the card configuration to default values. This should be called after the card is registered
+	void ResetConfiguration();
 };
 

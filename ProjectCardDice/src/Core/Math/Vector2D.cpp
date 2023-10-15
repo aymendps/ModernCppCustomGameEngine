@@ -103,7 +103,7 @@ Vector2D& Vector2D::Negate()
 
 float Vector2D::Magnitude() const
 {
-	return sqrt(pow(this->x, 2) + pow(this->y, 2));
+	return sqrtf(powf(this->x, 2) + powf(this->y, 2));
 }
 
 Vector2D operator+(const Vector2D& v1, const Vector2D& v2)
