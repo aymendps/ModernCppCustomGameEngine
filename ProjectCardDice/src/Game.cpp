@@ -73,6 +73,7 @@ void Game::Update(const float deltaTime)
 
 void Game::Render()
 {
+	SDL_SetRenderDrawColor(Game::renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
 	SceneManager::GetInstance().Render();
 	SDL_RenderPresent(renderer);

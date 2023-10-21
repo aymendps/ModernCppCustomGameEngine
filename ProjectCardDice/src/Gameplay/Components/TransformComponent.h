@@ -1,10 +1,16 @@
 #pragma once
 #include "../../Core/EC/Component.h"
 #include "../../Core/Math/Vector2D.h"
+#include <SDL_rect.h>
 
 class TransformComponent : public Component
 {
 public:
+	Vector2D position;
+	// x represents width, y represents height
+	Vector2D size;
+	float scale;
+
 	TransformComponent();
 	TransformComponent(const float x, const float y, const float w, const float h, const float scale = 1);
 	~TransformComponent();
@@ -14,20 +20,9 @@ public:
 	virtual void Update(const float deltaTime) override;
 	virtual void Render() override;
 
-	TransformComponent& SetPosition(const float x, const float y);
-	TransformComponent& SetPosition(const Vector2D& vec);
-	TransformComponent& SetSize(const float w, const float h);
-	TransformComponent& SetSize(const Vector2D& vec);
-	TransformComponent& SetScale(const float scale);
-
-	const Vector2D& GetPosition() const;
-	const Vector2D& GetSize() const;
-	const float GetScale() const;
-
-private:
-	Vector2D _position;
-	// x represents width, y represents height
-	Vector2D _size;
-	float _scale;
+	/// <summary>
+	/// Returns a rect that can be used to render something depending on this component's position, size and scale
+	/// </summary>
+	SDL_Rect GetDestinationRect() const;
 };
 

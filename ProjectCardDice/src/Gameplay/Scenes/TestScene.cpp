@@ -17,11 +17,14 @@ void TestScene::Init()
 	_testEntity = &CreateEntity("Test Entity");
 	_testEntity = &CreateEntity("Test Entity");
 
-	_testEntity->AddComponent<TransformComponent>().SetPosition(_testEntityPosition).SetSize(_testEntityPosition);
+	_testEntity->AddComponent<TransformComponent>().position = _testEntityPosition;
+	_testEntity->GetComponent<TransformComponent>().size = _testEntityPosition;
+
 	_testEntity->AddComponent<SpriteComponent>("assets/pic.jpg");
 	_testEntity->AddComponent<SpriteComponent>("assets/pic.jpg");
 
 	_cardEntity = &CreateRandomCardEntity("Test Card Entity");
+	_cardEntity->GetComponent<TransformComponent>().position = Vector2D{ 100, 100 };
 	_createdEntities.insert(_cardEntity);
 }
 
@@ -46,9 +49,7 @@ void TestScene::HandleEvents(SDL_Event& event)
 
 void TestScene::Update(const float deltaTime)
 {
-	auto position = _testEntity->GetComponent<TransformComponent>().GetPosition();
-	// using lerp, we move the entity from its current position to target position
-	_testEntity->GetComponent<TransformComponent>().SetPosition(position + Vector2D::Right * _testEntitySpeed * deltaTime);
+	_testEntity->GetComponent<TransformComponent>().position += Vector2D::Right * _testEntitySpeed * deltaTime;
 }
 
 void TestScene::Render()

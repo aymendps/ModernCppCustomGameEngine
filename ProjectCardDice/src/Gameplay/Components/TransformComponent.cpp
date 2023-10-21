@@ -1,11 +1,11 @@
 #include "TransformComponent.h"
 
-TransformComponent::TransformComponent() : _position {0, 0}, _size {0, 0}, _scale {1}
+TransformComponent::TransformComponent() : position {0, 0}, size {0, 0}, scale {1}
 {
 }
 
 TransformComponent::TransformComponent(const float x, const float y, const float w, const float h, const float scale)
-	: _position {x, y}, _size {w, h}, _scale {scale}
+	: position {x, y}, size {w, h}, scale {scale}
 {
 }
 
@@ -13,56 +13,9 @@ TransformComponent::~TransformComponent()
 {
 }
 
-TransformComponent& TransformComponent::SetPosition(const float x, const float y)
+SDL_Rect TransformComponent::GetDestinationRect() const
 {
-	_position.x = x;
-	_position.y = y;
-
-	return *this;
-}
-
-TransformComponent& TransformComponent::SetPosition(const Vector2D& vec)
-{
-	_position = vec;
-
-	return *this;
-}
-
-TransformComponent& TransformComponent::SetSize(const float w, const float h)
-{
-	_size.x = w;
-	_size.y = h;
-
-	return *this;
-}
-
-TransformComponent& TransformComponent::SetSize(const Vector2D& vec)
-{
-	_size = vec;
-
-	return *this;
-}
-
-TransformComponent& TransformComponent::SetScale(const float scale)
-{
-	this->_scale = scale;
-
-	return *this;
-}
-
-const Vector2D& TransformComponent::GetPosition() const
-{
-	return _position;
-}
-
-const Vector2D& TransformComponent::GetSize() const
-{
-	return _size;
-}
-
-const float TransformComponent::GetScale() const
-{
-	return _scale;
+	return { static_cast<int>(position.x), static_cast<int>(position.y), static_cast<int>(size.x * scale), static_cast<int>(size.y * scale) };
 }
 
 void TransformComponent::Init()

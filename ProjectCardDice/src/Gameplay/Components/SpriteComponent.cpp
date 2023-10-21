@@ -1,9 +1,12 @@
 #include "SpriteComponent.h"
+#include "../../Core/Managers/TextureManager.h"
+#include "../../Core/EC/Entity.h"
+
 
 SpriteComponent::SpriteComponent(const char* filePath)
 	: _transform{ nullptr }, _destinationRect{ 0, 0, 0, 0 }
 {
-	_texture.reset(TextureManager::LoadTexture(filePath));
+	SetTexture(filePath);
 }
 
 SpriteComponent::~SpriteComponent()
@@ -17,14 +20,7 @@ void SpriteComponent::Init()
 
 void SpriteComponent::Update(const float deltaTime)
 {
-	auto& size = _transform->GetSize();
-	auto& position = _transform->GetPosition();
-	auto scale = _transform->GetScale();
-
-	_destinationRect.x = static_cast<int>(position.x);
-	_destinationRect.y = static_cast<int>(position.y);
-	_destinationRect.w = static_cast<int>(size.x * scale);
-	_destinationRect.h = static_cast<int>(size.y * scale);
+	_destinationRect = _transform->GetDestinationRect();
 }
 
 void SpriteComponent::Render()
@@ -32,9 +28,7 @@ void SpriteComponent::Render()
 	TextureManager::RenderTexture(_texture.get(), &_destinationRect);
 }
 
-SpriteComponent& SpriteComponent::SetTexture(const char* filePath)
+void SpriteComponent::SetTexture(const char* filePath)
 {
 	_texture.reset(TextureManager::LoadTexture(filePath));
-
-	return *this;
 }

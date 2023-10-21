@@ -87,7 +87,4 @@ void SceneManager::RenderFadeScreen() const
 		static_cast<Uint8>(_fadeScreenAlpha));
 	SDL_Rect rect{ 0, 0, Game::GAME_WIDTH, Game::GAME_HEIGHT };
 	SDL_RenderFillRect(Game::renderer, &rect);
-
-	// Reset the render draw color and blend mode
-	SDL_SetRenderDrawColor(Game::renderer, 0, 0, 0, 255);
 }

@@ -12,10 +12,10 @@ CardEntityBuilder::~CardEntityBuilder()
 {
 }
 
-CardEntityBuilder& CardEntityBuilder::CardInfo(CardEntityUniqueID uniqueID, CardType type, std::string name, std::string description)
+CardEntityBuilder& CardEntityBuilder::CardInfo(CardEntityUniqueID uniqueID, CardCategory category, std::string name, std::string description)
 {
 	_cardConfiguration.uniqueID = uniqueID;
-	_cardConfiguration.cardType = type;
+	_cardConfiguration.cardCategory = category;
 	_cardConfiguration.name = name;
 	_cardConfiguration.description = description;
 	return *this;
