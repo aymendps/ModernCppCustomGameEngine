@@ -9,6 +9,8 @@ public:
 
 	// Sets the basic information of the card
 	CardEntityBuilder& CardInfo(CardEntityUniqueID uniqueID, CardCategory category, std::string name, std::string description);
+	// Sets the path to the thumbnail that will be loaded by the texture manager and rendered on the card
+	CardEntityBuilder& ThumbnailFrom(const char* thumbnailPath);
 	// Sets the dice roll values of the card (number of dices and number of sides)
 	CardEntityBuilder& DiceRoll(int numberOfDices, int numberOfSides);
 	// Sets the dice modifiers of the card. These are added to the dice roll values

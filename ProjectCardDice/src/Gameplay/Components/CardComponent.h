@@ -4,6 +4,7 @@
 #include <functional>
 #include "../../Core/EC/Component.h"
 #include "TransformComponent.h"
+#include "../../Core/CustomDestroyers/SDL_TextureDestroyer.h"
 
 // ID for each card entity that can be created in the game. Cards are configured in CardEntityBuilder.
 enum class CardEntityUniqueID {
@@ -48,6 +49,7 @@ struct CardConfiguration {
 	CardEntityUniqueID uniqueID = CardEntityUniqueID::UNDEFINED;
 	std::string name = "UNDEFINED";
 	std::string description = "UNDEFINED";
+	const char* thumbnailPath = "assets/placeholder.png";
 	// first int is the number of dices to roll, second int is the number of sides on the dices
 	std::pair <int, int> diceRoll = { 0, 0 };
 	// first int is the modifier to add to number of dices, second int is the modifier to add to number of sides on the dices
@@ -82,6 +84,7 @@ private:
 	TransformComponent* _transform;
 	SDL_Rect _destinationRect;
 	SDL_Color _cardCategoryColor;
+	std::unique_ptr<SDL_Texture, SDL_TextureDestroyer> _cardThumbnailTexture;
 
 	/* Render card elements in the following order */
 

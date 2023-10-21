@@ -20,8 +20,8 @@ void TestScene::Init()
 	_testEntity->AddComponent<TransformComponent>().position = _testEntityPosition;
 	_testEntity->GetComponent<TransformComponent>().size = _testEntityPosition;
 
-	_testEntity->AddComponent<SpriteComponent>("assets/pic.jpg");
-	_testEntity->AddComponent<SpriteComponent>("assets/pic.jpg");
+	_testEntity->AddComponent<SpriteComponent>("assets/placeholder.png");
+	_testEntity->AddComponent<SpriteComponent>("assets/placeholder.png");
 
 	_cardEntity = &CreateRandomCardEntity("Test Card Entity");
 	_cardEntity->GetComponent<TransformComponent>().position = Vector2D{ 100, 100 };

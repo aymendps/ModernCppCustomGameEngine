@@ -32,6 +32,7 @@ void CardCollection::Init()
 		.Register();
 
 	builder.CardInfo(CardEntityUniqueID::HOLY_TEST, CardCategory::HOLY, "Holy Test Card", "This is a test card.")
+		.ThumbnailFrom("assets/wind-grasp-air-3.png")
 		.DiceRoll(1, 6)
 		.DiceModifiers(0, 0)
 		.Costs(1)

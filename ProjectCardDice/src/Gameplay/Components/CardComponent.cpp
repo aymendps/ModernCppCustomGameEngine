@@ -1,6 +1,7 @@
 #include "CardComponent.h"
 #include "../../Game.h"
 #include "../../Core/EC/Entity.h"
+#include "../../Core/Managers/TextureManager.h"
 
 const Vector2D CardComponent::DEFAULT_CARD_SIZE = { 200, 300 };
 
@@ -10,7 +11,7 @@ const std::unordered_map<CardCategory, SDL_Color> CardComponent::CARD_CATEGORY_C
 	{ CardCategory::TEMPEST, { 175, 220, 230, 255 } },
 	{ CardCategory::SHADOW, { 70, 20, 20, 255 } },
 	{ CardCategory::ALCHEMY, { 128, 140, 0, 255 } },
-	{ CardCategory::HOLY, { 255, 255, 200, 255 } },
+	{ CardCategory::HOLY, { 255, 255, 210, 255 } },
 	{ CardCategory::NECRO, { 128, 0, 128, 255 } },
 	{ CardCategory::HEXER, { 255, 190, 200, 255 } },
 	{ CardCategory::NEUTRAL, { 200, 200, 200, 255 } }
@@ -19,6 +20,7 @@ const std::unordered_map<CardCategory, SDL_Color> CardComponent::CARD_CATEGORY_C
 CardComponent::CardComponent(CardConfiguration cardConfiguration) : _cardConfiguration { cardConfiguration }, _transform { nullptr }, 
 _destinationRect { 0, 0, 0, 0 }, _cardCategoryColor { 120, 120, 120, 255 }
 {
+	_cardThumbnailTexture.reset(TextureManager::LoadTexture(_cardConfiguration.thumbnailPath));
 }
 
 CardComponent::~CardComponent()
@@ -56,16 +58,20 @@ void CardComponent::RenderCardBackground() const
 
 void CardComponent::RenderCardThumbnail() const
 {
-	// Render thumbnail below the name
-	SDL_Rect thumbnailRect = { _destinationRect.x + 10, _destinationRect.y + 50, _destinationRect.w - 20, 120 };
-	SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
-	SDL_RenderFillRect(Game::renderer, &thumbnailRect);
+	// Render border around the thumbnail
+	SDL_Rect thumbnailBorderRect = { _destinationRect.x + 5, _destinationRect.y + 50, _destinationRect.w - 10, 140 };
+	SDL_SetRenderDrawColor(Game::renderer, _cardCategoryColor.r, _cardCategoryColor.g, _cardCategoryColor.b, _cardCategoryColor.a);
+	SDL_RenderFillRect(Game::renderer, &thumbnailBorderRect);
+
+	// Render thumbnail below the card name
+	SDL_Rect thumbnailRect = { _destinationRect.x + 5, _destinationRect.y + 55, _destinationRect.w - 10, 130 };
+	TextureManager::RenderTexture(_cardThumbnailTexture.get(), &thumbnailRect);
 }
 
 void CardComponent::RenderCardName() const
 {
 	// Render card name on top of the card
-	SDL_Rect nameBackgroundRect = { _destinationRect.x + 10, _destinationRect.y + 10, _destinationRect.w - 20, 40 };
+	SDL_Rect nameBackgroundRect = { _destinationRect.x + 5, _destinationRect.y + 5, _destinationRect.w - 10, 45 };
 	SDL_SetRenderDrawColor(Game::renderer, static_cast<Uint8>(_cardCategoryColor.r * 1.5f), static_cast<Uint8>(_cardCategoryColor.g * 1.5f),
 		static_cast<Uint8>(_cardCategoryColor.b * 1.5f), _cardCategoryColor.a);
 	SDL_RenderFillRect(Game::renderer, &nameBackgroundRect);
@@ -75,14 +81,14 @@ void CardComponent::RenderCardCost() const
 {
 	// Render card cost on top left of the card
 	SDL_Rect costBackgroundRect = { _destinationRect.x - 8, _destinationRect.y - 8, 32, 32 };
-	SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
+	SDL_SetRenderDrawColor(Game::renderer, 0, 155, 255, 255);
 	SDL_RenderFillRect(Game::renderer, &costBackgroundRect);
 }
 
 void CardComponent::RenderCardDescription() const
 {
 	// Render card description below the thumbnail
-	SDL_Rect descriptionBackgroundRect = { _destinationRect.x + 10, _destinationRect.y + 170, _destinationRect.w - 20, 120 };
+	SDL_Rect descriptionBackgroundRect = { _destinationRect.x + 5, _destinationRect.y + 190, _destinationRect.w - 10, 105 };
 	SDL_SetRenderDrawColor(Game::renderer, static_cast<Uint8>(_cardCategoryColor.r * 1.5f), static_cast<Uint8>(_cardCategoryColor.g * 1.5f),
 		static_cast<Uint8>(_cardCategoryColor.b * 1.5f), _cardCategoryColor.a);
 	SDL_RenderFillRect(Game::renderer, &descriptionBackgroundRect);

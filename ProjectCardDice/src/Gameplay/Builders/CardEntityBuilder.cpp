@@ -21,6 +21,12 @@ CardEntityBuilder& CardEntityBuilder::CardInfo(CardEntityUniqueID uniqueID, Card
 	return *this;
 }
 
+CardEntityBuilder& CardEntityBuilder::ThumbnailFrom(const char* thumbnailPath)
+{
+	_cardConfiguration.thumbnailPath = thumbnailPath;
+	return *this;
+}
+
 CardEntityBuilder& CardEntityBuilder::DiceRoll(int numberOfDices, int numberOfSides)
 {
 	_cardConfiguration.diceRoll = { numberOfDices, numberOfSides };

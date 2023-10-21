@@ -124,7 +124,1354 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="assets\pic.jpg">
+    <Image Include="assets\air-burst-air-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\air-burst-air-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\air-burst-air-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\air-burst-jade-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\air-burst-jade-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\air-burst-jade-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\air-burst-magenta-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\air-burst-magenta-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\air-burst-magenta-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\air-burst-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\air-burst-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\air-burst-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-acid-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-acid-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-acid-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-blue-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-blue-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-blue-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-eerie-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-eerie-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-eerie-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-jade-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-jade-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-jade-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-magenta-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-magenta-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-magenta-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-orange-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-orange-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-orange-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-red-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-red-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-red-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-royal-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-royal-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-royal-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\beam-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\combine.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-acid-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-acid-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-acid-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-blue-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-blue-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-blue-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-eerie-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-eerie-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-eerie-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-jade-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-jade-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-jade-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-magenta-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-magenta-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-magenta-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-orange-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-orange-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-orange-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-red-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-red-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-red-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-royal-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-royal-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-royal-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\enchant-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\evil-eye-eerie-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\evil-eye-eerie-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\evil-eye-eerie-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\evil-eye-red-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\evil-eye-red-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\evil-eye-red-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\explosion-magenta-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\explosion-magenta-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\explosion-magenta-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\explosion-orange-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\explosion-orange-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\explosion-orange-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\explosion-red-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\explosion-red-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\explosion-red-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\explosion-royal-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\explosion-royal-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\explosion-royal-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\explosion-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\explosion-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\explosion-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\finalrev.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fire sword.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fire-arrows-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fire-arrows-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fire-arrows-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fire-arrows-jade-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fire-arrows-jade-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fire-arrows-jade-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fire-arrows-magenta-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fire-arrows-magenta-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fire-arrows-magenta-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fire-arrows-royal-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fire-arrows-royal-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fire-arrows-royal-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fire-arrows-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fire-arrows-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fire-arrows-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fireball-acid-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fireball-acid-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fireball-acid-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fireball-eerie-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fireball-eerie-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fireball-eerie-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fireball-red-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fireball-red-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fireball-red-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fireball-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fireball-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fireball-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-acid-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-acid-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-acid-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-air-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-air-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-air-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-blue-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-blue-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-blue-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-magenta-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-magenta-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-magenta-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-orange-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-orange-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-orange-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-water-air-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-water-air-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\fog-water-air-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-0-acid.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-0-blue.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-0-eerie.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-0-grey.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-0-jade.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-0-magenta.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-0-orange.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-0-red.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-0-royal.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-0-sky.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-1-acid.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-1-blue.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-1-grey.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-2-grey.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-2-magenta.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-2-orange.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-3-grey.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-3-jade.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-3-red.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-4-grey.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-4-royal.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-4-sky.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-5-grey.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-5-magenta.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-5-orange.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-6-grey.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-6-royal.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-6-sky.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-7-blue.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-7-eerie.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-7-grey.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-8-acid.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-8-eerie.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-8-grey.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-9-grey.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-9-jade.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\frame-9-red.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\haste-fire-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\haste-fire-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\haste-fire-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\haste-royal-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\haste-royal-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\haste-royal-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\haste-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\haste-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\haste-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\heal-jade-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\heal-jade-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\heal-jade-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\heal-royal-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\heal-royal-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\heal-royal-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\heal-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\heal-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\heal-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\horror-acid-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\horror-acid-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\horror-acid-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\horror-eerie-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\horror-eerie-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\horror-eerie-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\horror-red-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\horror-red-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\horror-red-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\ice shards.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\ice-blue-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\ice-blue-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\ice-blue-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\ice-jade-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\ice-jade-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\ice-jade-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\ice-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\ice-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\ice-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\leaf-acid-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\leaf-acid-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\leaf-acid-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\leaf-jade-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\leaf-jade-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\leaf-jade-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\leaf-orange-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\leaf-orange-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\leaf-orange-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\leaf-royal-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\leaf-royal-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\leaf-royal-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-air-fire-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-air-fire-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-air-fire-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-blue-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-blue-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-blue-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-eerie-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-eerie-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-eerie-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lighting-acid-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lighting-acid-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lighting-acid-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lighting-eerie-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lighting-eerie-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lighting-eerie-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lighting-fire-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lighting-fire-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lighting-fire-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lighting-royal-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lighting-royal-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lighting-royal-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lighting-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lighting-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lighting-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-jade-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-jade-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-jade-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-magenta-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-magenta-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-magenta-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lightning-blue-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lightning-blue-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lightning-blue-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lightning-jade-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lightning-jade-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lightning-jade-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lightning-magenta-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lightning-magenta-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lightning-magenta-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lightning-orange-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lightning-orange-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lightning-orange-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-royal-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-royal-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-royal-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\light-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\link-blue-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\link-blue-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\link-blue-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\link-eerie-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\link-eerie-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\link-eerie-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\link-royal-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\link-royal-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\link-royal-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\link-spirit-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\link-spirit-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\link-spirit-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lvl1 fire arrows.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lvl2 fire arrows.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\lvl3 fire arrows.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\needles-acid-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\needles-acid-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\needles-acid-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\needles-blue-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\needles-blue-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\needles-blue-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\needles-fire-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\needles-fire-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\needles-fire-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\needles-royal-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\needles-royal-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\needles-royal-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\needles-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\needles-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\needles-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\placeholder.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-acid-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-acid-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-acid-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-blue-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-blue-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-blue-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-eerie-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-eerie-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-eerie-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-jade-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-jade-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-jade-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-magenta-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-magenta-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-magenta-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-orange-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-orange-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-orange-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-red-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-red-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-red-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-royal-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-royal-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-royal-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\protect-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\revive2.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rip-acid-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rip-acid-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rip-acid-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rip-jade-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rip-jade-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rip-jade-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rip-magenta-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rip-magenta-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rip-magenta-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rip-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rip-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rip-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rip-water-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rip-water-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rip-water-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rock-acid-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rock-acid-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rock-acid-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rock-orange-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rock-orange-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rock-orange-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rock-plain-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rock-plain-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rock-plain-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rock-royal-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rock-royal-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rock-royal-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rock-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rock-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\rock-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\runes-blue-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\runes-blue-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\runes-blue-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\runes-magenta-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\runes-magenta-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\runes-magenta-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\runes-orange-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\runes-orange-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\runes-orange-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\runes-royal-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\runes-royal-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\runes-royal-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\shadow spell.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\shielding-acid-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\shielding-acid-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\shielding-acid-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\shielding-eerie-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\shielding-eerie-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\shielding-eerie-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\shielding-fire-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\shielding-fire-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\shielding-fire-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\shielding-spirit-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\shielding-spirit-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\shielding-spirit-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\slice-acid-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\slice-acid-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\slice-acid-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\slice-orange-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\slice-orange-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\slice-orange-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\slice-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\slice-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\slice-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\slice-spirit-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\slice-spirit-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\slice-spirit-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\thorns.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\vines-acid-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\vines-acid-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\vines-acid-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\vines-eerie-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\vines-eerie-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\vines-eerie-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\vines-jade-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\vines-jade-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\vines-jade-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\vines-plain-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\vines-plain-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\vines-plain-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wild-acid-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wild-acid-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wild-acid-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wild-eerie-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wild-eerie-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wild-eerie-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wild-jade-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wild-jade-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wild-jade-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wild-orange-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wild-orange-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wild-orange-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-blue-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-blue-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-blue-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-grasp-acid-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-grasp-acid-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-grasp-acid-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-grasp-air-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-grasp-air-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-grasp-air-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-grasp-eerie-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-grasp-eerie-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-grasp-eerie-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-grasp-magenta-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-grasp-magenta-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-grasp-magenta-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-grasp-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-grasp-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-grasp-sky-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-magenta-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-magenta-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-magenta-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-red-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-red-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-red-3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-sky-1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-sky-2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\wind-sky-3.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
