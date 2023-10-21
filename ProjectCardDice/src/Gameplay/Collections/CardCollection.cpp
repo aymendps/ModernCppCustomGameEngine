@@ -32,7 +32,7 @@ void CardCollection::Init()
 		.Register();
 
 	builder.CardInfo(CardEntityUniqueID::HOLY_TEST, CardCategory::HOLY, "Holy Test Card", "This is a test card.")
-		.ThumbnailFrom("assets/wind-grasp-air-3.png")
+		.ThumbnailFrom("assets/ignore/Priest19.png")
 		.DiceRoll(1, 6)
 		.DiceModifiers(0, 0)
 		.Costs(1)
@@ -57,6 +57,14 @@ void CardCollection::Init()
 		.Register();
 
 	builder.CardInfo(CardEntityUniqueID::PYRO_TEST, CardCategory::PYRO, "Pyro Test Card", "This is a test card.")
+		.DiceRoll(1, 6)
+		.DiceModifiers(0, 0)
+		.Costs(1)
+		.Targets(CardTargetType::ENEMY)
+		.ApplyEffect([]() { std::cout << "Test Card Effect" << std::endl; })
+		.Register();
+
+	builder.CardInfo(CardEntityUniqueID::HYDRO_TEST, CardCategory::HYDRO, "Hydro Test Card", "This is a test card.")
 		.DiceRoll(1, 6)
 		.DiceModifiers(0, 0)
 		.Costs(1)

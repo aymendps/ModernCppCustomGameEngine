@@ -6,10 +6,11 @@
 const Vector2D CardComponent::DEFAULT_CARD_SIZE = { 200, 300 };
 
 const std::unordered_map<CardCategory, SDL_Color> CardComponent::CARD_CATEGORY_COLORS = {
-	{ CardCategory::PYRO, { 225, 0, 35, 255 } },
+	{ CardCategory::PYRO, { 255, 0, 30, 255 } },
+	{ CardCategory::HYDRO, { 0, 50, 100, 255 } },
 	{ CardCategory::GEO, { 140, 115, 85, 255 } },
-	{ CardCategory::TEMPEST, { 175, 220, 230, 255 } },
-	{ CardCategory::SHADOW, { 70, 20, 20, 255 } },
+	{ CardCategory::TEMPEST, { 180, 230, 230, 255 } },
+	{ CardCategory::SHADOW, { 20, 50, 20, 255 } },
 	{ CardCategory::ALCHEMY, { 128, 140, 0, 255 } },
 	{ CardCategory::HOLY, { 255, 255, 210, 255 } },
 	{ CardCategory::NECRO, { 128, 0, 128, 255 } },

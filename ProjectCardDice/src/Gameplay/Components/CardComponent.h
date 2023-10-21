@@ -9,6 +9,7 @@
 // ID for each card entity that can be created in the game. Cards are configured in CardEntityBuilder.
 enum class CardEntityUniqueID {
 	PYRO_TEST,
+	HYDRO_TEST,
 	GEO_TEST,
 	TEMPEST_TEST,
 	SHADOW_TEST,
@@ -35,6 +36,7 @@ enum class CardTargetType
 enum class CardCategory
 {
 	PYRO,
+	HYDRO,
 	GEO,
 	TEMPEST,
 	SHADOW,
@@ -49,7 +51,7 @@ struct CardConfiguration {
 	CardEntityUniqueID uniqueID = CardEntityUniqueID::UNDEFINED;
 	std::string name = "UNDEFINED";
 	std::string description = "UNDEFINED";
-	const char* thumbnailPath = "assets/placeholder.png";
+	const char* thumbnailPath = "assets/ignore/placeholder.png";
 	// first int is the number of dices to roll, second int is the number of sides on the dices
 	std::pair <int, int> diceRoll = { 0, 0 };
 	// first int is the modifier to add to number of dices, second int is the modifier to add to number of sides on the dices
