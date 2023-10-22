@@ -32,14 +32,14 @@ SDL_Font* const TextureManager::LoadFontTexture(FontFamily font, int fontSize, c
 		TTF_SetFontStyle(ttfFont, TTF_STYLE_BOLD);
 		TTF_SetFontStyle(ttfOutline, TTF_STYLE_BOLD);
 	}
-
+	
 	// Create the main surface depending on whether or not we want to wrap the text
-	auto surface = wrapLength != 0 ? TTF_RenderText_Blended_Wrapped(ttfFont, text, color, wrapLength)
-		: TTF_RenderText_Blended(ttfFont, text, color);
+	auto surface = wrapLength != 0 ? TTF_RenderUTF8_Blended_Wrapped(ttfFont, text, color, wrapLength)
+		: TTF_RenderUTF8_Blended(ttfFont, text, color);
 
 	// Create the outline surface depending on whether or not we want to wrap the text
-	auto outlineSurface = wrapLength != 0 ? TTF_RenderText_Blended_Wrapped(ttfOutline, text, { 0, 0, 0 }, wrapLength)
-		: TTF_RenderText_Blended(ttfOutline, text, { 0, 0, 0 });
+	auto outlineSurface = wrapLength != 0 ? TTF_RenderUTF8_Blended_Wrapped(ttfOutline, text, { 0, 0, 0 }, wrapLength)
+		: TTF_RenderUTF8_Blended(ttfOutline, text, { 0, 0, 0 });
 
 	// Add the main surface on top of the outline surface
 	SDL_SetSurfaceBlendMode(surface, SDL_BLENDMODE_BLEND);
