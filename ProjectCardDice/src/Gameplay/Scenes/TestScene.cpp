@@ -23,9 +23,20 @@ void TestScene::Init()
 	_testEntity->AddComponent<SpriteComponent>("assets/placeholder.png");
 	_testEntity->AddComponent<SpriteComponent>("assets/placeholder.png");
 
-	_cardEntity = &CreateRandomCardEntity("Test Card Entity");
-	_cardEntity->GetComponent<TransformComponent>().position = Vector2D{ 100, 100 };
-	_createdEntities.insert(_cardEntity);
+	Vector2D cardPosition = { 150, 100 };
+
+	for (int i = 0; i < 10; i++)
+	{
+		_cardEntity = &CreateCardEntity(static_cast<CardEntityUniqueID>(i), "Test Card " + i);
+		_cardEntity->GetComponent<TransformComponent>().position = cardPosition;
+		cardPosition.x += 250;
+
+		if (i == 4)
+		{
+			cardPosition.x = 150;
+			cardPosition.y += 350;
+		}
+	}
 }
 
 void TestScene::HandleEvents(SDL_Event& event)

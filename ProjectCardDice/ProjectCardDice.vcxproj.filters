@@ -72,6 +72,12 @@
     <ClCompile Include="src\Core\Math\Randomizer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Core\Fonts\SDL_Font.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\CustomDestroyers\SDL_FontDestroyer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game.h">
@@ -120,6 +126,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Core\Math\Randomizer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\Fonts\SDL_Font.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Core\CustomDestroyers\SDL_FontDestroyer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -2977,6 +2989,7 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="assets\fonts\goudy.ttf" />
+    <Font Include="assets\fonts\arial.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="libtiff-5.dll" />

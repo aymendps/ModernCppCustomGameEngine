@@ -16,7 +16,7 @@ void Game::Init()
 {
 	std::cout << "Initializing SDL..." << std::endl;
 
-	if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
+	if (SDL_Init(SDL_INIT_EVERYTHING) == 0 && TTF_Init() == 0) {
 		std::cout << "SDL was initialized!" << std::endl;
 
 		std::cout << "Creating Game Window..." << std::endl;
@@ -88,6 +88,10 @@ void Game::Destroy()
 	std::cout << "Destroying Game Renderer..." << std::endl;
 	SDL_DestroyRenderer(renderer);
 	std::cout << "Game Renderer was destroyed!" << std::endl;
+
+	std::cout << "Destroying SDL_TTF..." << std::endl;
+	TTF_Quit();
+	std::cout << "SDL_TTF was destroyed!" << std::endl;
 
 	std::cout << "Destroying SDL..." << std::endl;
 	SDL_Quit();

@@ -4,6 +4,7 @@
 #include <functional>
 #include "../../Core/EC/Component.h"
 #include "TransformComponent.h"
+#include "../../Core/CustomDestroyers/SDL_FontDestroyer.h"
 #include "../../Core/CustomDestroyers/SDL_TextureDestroyer.h"
 
 // ID for each card entity that can be created in the game. Cards are configured in CardEntityBuilder.
@@ -86,7 +87,10 @@ private:
 	TransformComponent* _transform;
 	SDL_Rect _destinationRect;
 	SDL_Color _cardCategoryColor;
-	std::unique_ptr<SDL_Texture, SDL_TextureDestroyer> _cardThumbnailTexture;
+	std::unique_ptr<SDL_Texture, SDL_TextureDestroyer> _thumbnailTexture;
+	std::unique_ptr<SDL_Font, SDL_FontDestroyer> _costFont;
+	std::unique_ptr<SDL_Font, SDL_FontDestroyer> _nameFont;
+	std::unique_ptr<SDL_Font, SDL_FontDestroyer> _descriptionFont;
 
 	/* Render card elements in the following order */
 

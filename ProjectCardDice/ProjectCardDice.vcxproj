@@ -143,6 +143,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Core\CustomDestroyers\SDL_FontDestroyer.cpp" />
+    <ClCompile Include="src\Core\Fonts\SDL_Font.cpp" />
     <ClCompile Include="src\Core\Math\Randomizer.cpp" />
     <ClCompile Include="src\Gameplay\Collections\CardCollection.cpp" />
     <ClCompile Include="src\Gameplay\Builders\CardEntityBuilder.cpp" />
@@ -162,6 +164,8 @@
     <ClCompile Include="src\Gameplay\Scenes\TestScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Core\CustomDestroyers\SDL_FontDestroyer.h" />
+    <ClInclude Include="src\Core\Fonts\SDL_Font.h" />
     <ClInclude Include="src\Core\Math\Randomizer.h" />
     <ClInclude Include="src\Gameplay\Collections\CardCollection.h" />
     <ClInclude Include="src\Gameplay\Builders\CardEntityBuilder.h" />
@@ -1132,6 +1136,7 @@
     <Image Include="assets\ignore\wind-sky-3.png" />
   </ItemGroup>
   <ItemGroup>
+    <Font Include="assets\fonts\arial.ttf" />
     <Font Include="assets\fonts\goudy.ttf" />
   </ItemGroup>
   <ItemGroup>
