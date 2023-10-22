@@ -1,6 +1,6 @@
 #include "Game.h"
-#include "Managers/SceneManager.h"
-#include "Managers/EntityManager.h"
+#include "Gameplay/Scenes/SceneManager.h"
+#include "Gameplay/Collections/CardCollection.h"
 
 SDL_Renderer* Game::renderer = nullptr;
 
@@ -16,7 +16,7 @@ void Game::Init()
 {
 	std::cout << "Initializing SDL..." << std::endl;
 
-	if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
+	if (SDL_Init(SDL_INIT_EVERYTHING) == 0 && TTF_Init() == 0) {
 		std::cout << "SDL was initialized!" << std::endl;
 
 		std::cout << "Creating Game Window..." << std::endl;
@@ -34,10 +34,13 @@ void Game::Init()
 
 		if (renderer) {
 			std::cout << "Game Renderer was created!" << std::endl;
+			SDL_SetRenderDrawBlendMode(Game::renderer, SDL_BLENDMODE_BLEND);
 		}
 
-		SDL_SetRenderDrawBlendMode(Game::renderer, SDL_BLENDMODE_BLEND);
+		std::cout << "\033[33m" << "Allowing a maximum of " << maxComponentTypes << " component types per entity" << "\033[0m" << std::endl;
+		std::cout << "\033[33m" << "Allowing only 1 instance of each component type per entity" << "\033[0m" << std::endl;
 
+		CardCollection::GetInstance().Init();
 		SceneManager::GetInstance().Init();
 
 		_isRunning = true;
@@ -70,6 +73,7 @@ void Game::Update(const float deltaTime)
 
 void Game::Render()
 {
+	SDL_SetRenderDrawColor(Game::renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
 	SceneManager::GetInstance().Render();
 	SDL_RenderPresent(renderer);
@@ -84,6 +88,10 @@ void Game::Destroy()
 	std::cout << "Destroying Game Renderer..." << std::endl;
 	SDL_DestroyRenderer(renderer);
 	std::cout << "Game Renderer was destroyed!" << std::endl;
+
+	std::cout << "Destroying SDL_TTF..." << std::endl;
+	TTF_Quit();
+	std::cout << "SDL_TTF was destroyed!" << std::endl;
 
 	std::cout << "Destroying SDL..." << std::endl;
 	SDL_Quit();
