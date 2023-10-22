@@ -51,12 +51,19 @@ void SceneManager::Render() const
 {
 	if (!_isTransitioning)
 	{
+		// Render the active scene and all its entities
 		_activeScene->Render();
 		EntityManager::GetInstance().Render();
 
+		// This will render the fade out during the old scene before transitioning
+		// After transitioning is done, this will fade in during the new scene
 		if (_fadeDirection != FadeDirection::None) {
 			SceneManager::RenderFadeScreen();
 		}
+	}
+	else {
+		// If we are transitioning, we need to just render the fully faded out screen
+		RenderFadeScreen();
 	}
 }
 
