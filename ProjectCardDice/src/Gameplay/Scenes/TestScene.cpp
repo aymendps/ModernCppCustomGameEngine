@@ -27,7 +27,7 @@ void TestScene::Init()
 
 	for (int i = 0; i < 10; i++)
 	{
-		_cardEntity = &CreateCardEntity(static_cast<CardEntityUniqueID>(i), "Test Card " + i);
+		_cardEntity = &CreateCardEntity(static_cast<CardEntityUniqueID>(i), "Test Card " + std::to_string(i));
 		_cardEntity->GetComponent<TransformComponent>().position = cardPosition;
 		cardPosition.x += 250;
 
