@@ -12,7 +12,7 @@ public:
 	float scale;
 
 	TransformComponent();
-	TransformComponent(const float x, const float y, const float w, const float h, const float scale = 1);
+	TransformComponent(float x, float y, float w, float h, float scale = 1.0f);
 	~TransformComponent();
 
 	// Inherited via Component

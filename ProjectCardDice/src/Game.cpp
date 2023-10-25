@@ -34,7 +34,8 @@ void Game::Init()
 
 		if (renderer) {
 			std::cout << "Game Renderer was created!" << std::endl;
-			SDL_SetRenderDrawBlendMode(Game::renderer, SDL_BLENDMODE_BLEND);
+			SDL_RenderSetLogicalSize(renderer, GAME_WIDTH, GAME_HEIGHT);
+			SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 		}
 
 		std::cout << "\033[33m" << "Allowing a maximum of " << maxComponentTypes << " component types per entity" << "\033[0m" << std::endl;

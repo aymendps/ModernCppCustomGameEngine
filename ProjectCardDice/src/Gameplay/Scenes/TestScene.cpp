@@ -1,6 +1,7 @@
 #include "TestScene.h"
 #include "SceneManager.h"
 #include "../Components/SpriteComponent.h"
+#include "BattleScene.h"
 
 
 TestScene::TestScene(Vector2D position, float speed) :_testEntity { nullptr }, _cardEntity { nullptr }, _testEntityPosition { position }, 
@@ -23,18 +24,18 @@ void TestScene::Init()
 	_testEntity->AddComponent<SpriteComponent>("assets/placeholder.png");
 	_testEntity->AddComponent<SpriteComponent>("assets/placeholder.png");
 
-	Vector2D cardPosition = { 150, 100 };
+	Vector2D cardPosition = { 200, 125 };
 
 	for (int i = 0; i < 10; i++)
 	{
 		_cardEntity = &CreateCardEntity(static_cast<CardEntityUniqueID>(i), "Test Card " + std::to_string(i));
 		_cardEntity->GetComponent<TransformComponent>().position = cardPosition;
-		cardPosition.x += 250;
+		cardPosition.x += 315;
 
 		if (i == 4)
 		{
-			cardPosition.x = 150;
-			cardPosition.y += 350;
+			cardPosition.x = 200;
+			cardPosition.y += 440;
 		}
 	}
 }
@@ -47,7 +48,7 @@ void TestScene::HandleEvents(SDL_Event& event)
 		switch (event.key.keysym.sym)
 		{
 		case SDLK_s:
-			SceneManager::GetInstance().SetActiveScene<TestScene>(true, Vector2D{ 100, 100 }, _testEntitySpeed * 2.0f);
+			SceneManager::GetInstance().SetActiveScene<BattleScene>(true);
 			break;
 		default:
 			break;

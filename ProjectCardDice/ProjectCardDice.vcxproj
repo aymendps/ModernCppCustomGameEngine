@@ -93,6 +93,9 @@
       <AdditionalLibraryDirectories>C:\Dev\SDL2\lib\x86;C:\Dev\SDL2_image\lib\x86;C:\Dev\SDL2_ttf\lib\x86</AdditionalLibraryDirectories>
       <AdditionalDependencies>shell32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib</AdditionalDependencies>
     </Link>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -125,6 +128,9 @@
       <AdditionalLibraryDirectories>C:\Dev\SDL2\lib\x86;C:\Dev\SDL2_image\lib\x86;C:\Dev\SDL2_ttf\lib\x86</AdditionalLibraryDirectories>
       <AdditionalDependencies>shell32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib</AdditionalDependencies>
     </Link>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -143,6 +149,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Gameplay\Scenes\BattleScene.cpp" />
     <ClCompile Include="src\Core\CustomDestroyers\SDL_FontDestroyer.cpp" />
     <ClCompile Include="src\Core\Fonts\SDL_Font.cpp" />
     <ClCompile Include="src\Core\Math\Randomizer.cpp" />
@@ -164,6 +171,7 @@
     <ClCompile Include="src\Gameplay\Scenes\TestScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Gameplay\Scenes\BattleScene.h" />
     <ClInclude Include="src\Core\CustomDestroyers\SDL_FontDestroyer.h" />
     <ClInclude Include="src\Core\Fonts\SDL_Font.h" />
     <ClInclude Include="src\Core\Math\Randomizer.h" />
@@ -236,6 +244,16 @@
     <Image Include="assets\ignore\Barbarian7.png" />
     <Image Include="assets\ignore\Barbarian8.png" />
     <Image Include="assets\ignore\Barbarian9.png" />
+    <Image Include="assets\ignore\battleback1.png" />
+    <Image Include="assets\ignore\battleback10.png" />
+    <Image Include="assets\ignore\battleback2.png" />
+    <Image Include="assets\ignore\battleback3.png" />
+    <Image Include="assets\ignore\battleback4.png" />
+    <Image Include="assets\ignore\battleback5.png" />
+    <Image Include="assets\ignore\battleback6.png" />
+    <Image Include="assets\ignore\battleback7.png" />
+    <Image Include="assets\ignore\battleback8.png" />
+    <Image Include="assets\ignore\battleback9.png" />
     <Image Include="assets\ignore\beam-acid-1.png" />
     <Image Include="assets\ignore\beam-acid-2.png" />
     <Image Include="assets\ignore\beam-acid-3.png" />

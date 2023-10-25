@@ -89,7 +89,8 @@ private:
 		// This way, the function can be called in the main thread
 		// This is needed because SDL Render functions can only work properly in the main thread
 		 _initNewScene = [&]() {
-			 std::cout << "Switching Scenes from " << typeid(*_activeScene).name() << " to " << typeid(T).name() << std::endl;
+			 std::cout << "\033[35m" << "Switching Scenes from " << typeid(*_activeScene).name() << " to " << typeid(T).name() 
+				 << "\033[0m" << std::endl;
 			// Destroy the old scene
 			_activeScene->Destroy();
 			// Make sure all entities related to old scene are destroyed
@@ -97,7 +98,7 @@ private:
 			// Create the new scene
 			_activeScene.reset(new T(std::forward<Args>(args)...));
 			// Initialize the new scene
-			std::cout << "Initializing Scene: " << typeid(T).name() << std::endl;
+			std::cout << "\033[35m" << "Initializing Scene: " << typeid(T).name() << "\033[0m" << std::endl;
 			_activeScene->Init();
 		};
 

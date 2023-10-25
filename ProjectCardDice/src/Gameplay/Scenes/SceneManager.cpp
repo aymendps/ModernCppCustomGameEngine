@@ -4,7 +4,7 @@
 
 SceneManager::SceneManager()
 {
-	std::cout << "Creating the initial Scene..." << std::endl;
+	std::cout << "\033[35m" << "Creating the initial Scene..." << "\033[0m" << std::endl;
 	_activeScene.reset(new TestScene({100, 100}, 10.0f));
 	std::cout << "Initial Scene created!" << std::endl;
 

@@ -87,7 +87,7 @@ void CardCollection::Init()
 		.ApplyEffect([]() { std::cout << "Test Card Effect" << std::endl; })
 		.Register();
 
-	builder.CardInfo(CardEntityUniqueID::TEMPEST_TEST, CardCategory::TEMPEST, "Tempest Test Card", "This is a test car.daaaaa This is a test card.")
+	builder.CardInfo(CardEntityUniqueID::TEMPEST_TEST, CardCategory::TEMPEST, "Tempest Test Card", "This is a test cardaaaaa This is a test card.")
 		.ThumbnailFrom("assets/ignore/Electromancer1.png")
 		.DiceRoll(1, 6)
 		.DiceModifiers(0, 0)

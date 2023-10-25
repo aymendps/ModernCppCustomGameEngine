@@ -4,7 +4,7 @@ TransformComponent::TransformComponent() : position {0, 0}, size {0, 0}, scale {
 {
 }
 
-TransformComponent::TransformComponent(const float x, const float y, const float w, const float h, const float scale)
+TransformComponent::TransformComponent(float x, float y, float w, float h, float scale)
 	: position {x, y}, size {w, h}, scale {scale}
 {
 }
