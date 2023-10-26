@@ -82,6 +82,8 @@ void Game::Render()
 
 void Game::Destroy()
 {
+	SceneManager::GetInstance().Destroy();
+
 	std::cout << "Destroying Game Window..." << std::endl;
 	SDL_DestroyWindow(_window);
 	std::cout << "Game Window was destroyed!" << std::endl;

@@ -53,7 +53,6 @@ void SceneManager::Render() const
 	{
 		// Render the active scene and all its entities
 		_activeScene->Render();
-		EntityManager::GetInstance().Render();
 
 		// This will render the fade out during the old scene before transitioning
 		// After transitioning is done, this will fade in during the new scene
@@ -65,6 +64,12 @@ void SceneManager::Render() const
 		// If we are transitioning, we need to just render the fully faded out screen
 		RenderFadeScreen();
 	}
+}
+
+void SceneManager::Destroy()
+{
+	_activeScene->Destroy();
+	EntityManager::GetInstance().Refresh();
 }
 
 void SceneManager::UpdateFadeScreen(const float deltaTime)

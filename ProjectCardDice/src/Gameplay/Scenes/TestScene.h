@@ -12,7 +12,6 @@ public:
 	void Init() override;
 	void HandleEvents(union SDL_Event& event) override;
 	void Update(const float deltaTime) override;
-	void Render() override;
 	void Destroy() override;
 
 private:

@@ -29,7 +29,10 @@ enum class CardTargetType
 	SELF,
 	ENEMY,
 	ALL_ENEMIES,
-	ALL,
+	RANDOM_ENEMY,
+	ALLY,
+	ALL_ALLIES,
+	RANDOM_ALLY,
 	UNDEFINED
 };
 

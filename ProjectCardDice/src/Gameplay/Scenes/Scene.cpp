@@ -2,6 +2,11 @@
 #include "../Collections/CardCollection.h"
 #include "../../Core/Managers/EntityManager.h"
 
+void Scene::Render()
+{
+	EntityManager::GetInstance().Render();
+}
+
 void Scene::Destroy()
 {
 	for (auto& entity : _createdEntities)

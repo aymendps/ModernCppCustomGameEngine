@@ -14,7 +14,7 @@ public:
 	virtual void Init() = 0;
 	virtual void HandleEvents(union SDL_Event& event) = 0;
 	virtual void Update(const float deltaTime) = 0;
-	virtual void Render() = 0;
+	virtual void Render();
 	virtual void Destroy();
 
 protected:

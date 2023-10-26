@@ -149,6 +149,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Core\Events\Hoverable.cpp" />
+    <ClCompile Include="src\Gameplay\Components\CharacterComponent.cpp" />
     <ClCompile Include="src\Gameplay\Scenes\BattleScene.cpp" />
     <ClCompile Include="src\Core\CustomDestroyers\SDL_FontDestroyer.cpp" />
     <ClCompile Include="src\Core\Fonts\SDL_Font.cpp" />
@@ -171,6 +173,8 @@
     <ClCompile Include="src\Gameplay\Scenes\TestScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Core\Events\Hoverable.h" />
+    <ClInclude Include="src\Gameplay\Components\CharacterComponent.h" />
     <ClInclude Include="src\Gameplay\Scenes\BattleScene.h" />
     <ClInclude Include="src\Core\CustomDestroyers\SDL_FontDestroyer.h" />
     <ClInclude Include="src\Core\Fonts\SDL_Font.h" />

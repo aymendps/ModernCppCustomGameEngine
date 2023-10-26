@@ -30,6 +30,7 @@ public:
 	void HandleEvents(union SDL_Event& event) const;
 	void Update(const float deltaTime);
 	void Render() const;
+	void Destroy();
 
 	/// <summary>
 	/// Changes the active scene to the given scene class.

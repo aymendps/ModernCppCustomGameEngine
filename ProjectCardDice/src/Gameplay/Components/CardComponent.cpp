@@ -98,12 +98,12 @@ void CardComponent::RenderCardName() const
 
 	// Render card name on top of the background above and make sure it's centered horizontally and vertically
 	SDL_Rect nameFontRect = { 
-		_destinationRect.x + (_destinationRect.w / 2) - static_cast<int>(_nameFont.get()->width * _transform->scale / 2),
+		_destinationRect.x + (_destinationRect.w / 2) - static_cast<int>(_nameFont->width * _transform->scale / 2),
 		_destinationRect.y + static_cast<int>(18 * _transform->scale),
-		static_cast<int>(_nameFont.get()->width * _transform->scale),
-		static_cast<int>(_nameFont.get()->height * _transform->scale)
+		static_cast<int>(_nameFont->width * _transform->scale),
+		static_cast<int>(_nameFont->height * _transform->scale)
 	};
-	TextureManager::RenderTexture(_nameFont.get()->texture, &nameFontRect);
+	TextureManager::RenderTexture(_nameFont->texture, &nameFontRect);
 }
 
 void CardComponent::RenderCardCost() const
@@ -122,12 +122,12 @@ void CardComponent::RenderCardCost() const
 
 	// Render card cost on top of the background above and make sure it's centered horizontally and vertically
 	SDL_Rect costFontRect = { 
-		_destinationRect.x + static_cast<int>(4 * _transform->scale - (_costFont.get()->width * _transform->scale / 2)),
+		_destinationRect.x + static_cast<int>(4 * _transform->scale - (_costFont->width * _transform->scale / 2)),
 		_destinationRect.y - static_cast<int>(25 * _transform->scale), 
-		static_cast<int>(_costFont.get()->width * _transform->scale),
-		static_cast<int>(_costFont.get()->height * _transform->scale)
+		static_cast<int>(_costFont->width * _transform->scale),
+		static_cast<int>(_costFont->height * _transform->scale)
 	};
-	TextureManager::RenderTexture(_costFont.get()->texture, &costFontRect);
+	TextureManager::RenderTexture(_costFont->texture, &costFontRect);
 }
 
 void CardComponent::RenderCardDescription() const
@@ -149,10 +149,10 @@ void CardComponent::RenderCardDescription() const
 	SDL_Rect descFontRect = { 
 		_destinationRect.x + static_cast<int>(15 * _transform->scale),
 		_destinationRect.y + static_cast<int>(244 * _transform->scale),
-		static_cast<int>(_descriptionFont.get()->width * _transform->scale),
-		static_cast<int>(_descriptionFont.get()->height * _transform->scale)
+		static_cast<int>(_descriptionFont->width * _transform->scale),
+		static_cast<int>(_descriptionFont->height * _transform->scale)
 	};
-	TextureManager::RenderTexture(_descriptionFont.get()->texture, &descFontRect);
+	TextureManager::RenderTexture(_descriptionFont->texture, &descFontRect);
 }
 
 std::ostream& operator<<(std::ostream& os, const CardComponent& card)

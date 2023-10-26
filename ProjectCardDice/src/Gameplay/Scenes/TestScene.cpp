@@ -64,10 +64,6 @@ void TestScene::Update(const float deltaTime)
 	_testEntity->GetComponent<TransformComponent>().position += Vector2D::Right * _testEntitySpeed * deltaTime;
 }
 
-void TestScene::Render()
-{
-}
-
 void TestScene::Destroy()
 {
 	Scene::Destroy();
