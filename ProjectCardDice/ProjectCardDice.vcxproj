@@ -84,7 +84,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>C:\Dev\SDL2_image\include;C:\Dev\SDL2\include;C:\Dev\SDL2_ttf\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -93,6 +93,9 @@
       <AdditionalLibraryDirectories>C:\Dev\SDL2\lib\x86;C:\Dev\SDL2_image\lib\x86;C:\Dev\SDL2_ttf\lib\x86</AdditionalLibraryDirectories>
       <AdditionalDependencies>shell32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib</AdditionalDependencies>
     </Link>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -117,7 +120,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Dev\SDL2_image\include;C:\Dev\SDL2\include;C:\Dev\SDL2_ttf\include</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -125,6 +128,9 @@
       <AdditionalLibraryDirectories>C:\Dev\SDL2\lib\x86;C:\Dev\SDL2_image\lib\x86;C:\Dev\SDL2_ttf\lib\x86</AdditionalLibraryDirectories>
       <AdditionalDependencies>shell32.lib;SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib</AdditionalDependencies>
     </Link>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -143,14 +149,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Gameplay\Components\EnemyComponent.cpp" />
+    <ClCompile Include="src\Core\Events\MouseEvents.cpp" />
+    <ClCompile Include="src\Gameplay\Components\CharacterComponent.cpp" />
+    <ClCompile Include="src\Gameplay\Scenes\TestScene2.cpp" />
     <ClCompile Include="src\Core\CustomDestroyers\SDL_FontDestroyer.cpp" />
     <ClCompile Include="src\Core\Fonts\SDL_Font.cpp" />
     <ClCompile Include="src\Core\Math\Randomizer.cpp" />
     <ClCompile Include="src\Gameplay\Collections\CardCollection.cpp" />
     <ClCompile Include="src\Gameplay\Builders\CardEntityBuilder.cpp" />
     <ClCompile Include="src\Gameplay\Components\CardComponent.cpp" />
-    <ClCompile Include="src\Gameplay\Scenes\SceneManager.cpp" />
-    <ClCompile Include="src\Gameplay\Scenes\Scene.cpp" />
+    <ClCompile Include="src\Core\Managers\SceneManager.cpp" />
+    <ClCompile Include="src\Core\EC\Scene.cpp" />
     <ClCompile Include="src\Gameplay\Components\SpriteComponent.cpp" />
     <ClCompile Include="src\Core\Managers\EntityManager.cpp" />
     <ClCompile Include="src\Core\EC\Entity.cpp" />
@@ -161,17 +171,24 @@
     <ClCompile Include="src\Core\Managers\TextureManager.cpp" />
     <ClCompile Include="src\Gameplay\Components\TransformComponent.cpp" />
     <ClCompile Include="src\Core\Math\Vector2D.cpp" />
-    <ClCompile Include="src\Gameplay\Scenes\TestScene.cpp" />
+    <ClCompile Include="src\Gameplay\Scenes\TestScene.cpp">
+      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdcpp20</LanguageStandard>
+      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdcpp20</LanguageStandard>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Gameplay\Components\EnemyComponent.h" />
+    <ClInclude Include="src\Core\Events\MouseEvents.h" />
+    <ClInclude Include="src\Gameplay\Components\CharacterComponent.h" />
+    <ClInclude Include="src\Gameplay\Scenes\TestScene2.h" />
     <ClInclude Include="src\Core\CustomDestroyers\SDL_FontDestroyer.h" />
     <ClInclude Include="src\Core\Fonts\SDL_Font.h" />
     <ClInclude Include="src\Core\Math\Randomizer.h" />
     <ClInclude Include="src\Gameplay\Collections\CardCollection.h" />
     <ClInclude Include="src\Gameplay\Builders\CardEntityBuilder.h" />
     <ClInclude Include="src\Gameplay\Components\CardComponent.h" />
-    <ClInclude Include="src\Gameplay\Scenes\SceneManager.h" />
-    <ClInclude Include="src\Gameplay\Scenes\Scene.h" />
+    <ClInclude Include="src\Core\Managers\SceneManager.h" />
+    <ClInclude Include="src\Core\EC\Scene.h" />
     <ClInclude Include="src\Gameplay\Components\SpriteComponent.h" />
     <ClInclude Include="src\Core\Managers\EntityManager.h" />
     <ClInclude Include="src\Core\EC\Entity.h" />
@@ -236,6 +253,16 @@
     <Image Include="assets\ignore\Barbarian7.png" />
     <Image Include="assets\ignore\Barbarian8.png" />
     <Image Include="assets\ignore\Barbarian9.png" />
+    <Image Include="assets\ignore\battleback1.png" />
+    <Image Include="assets\ignore\battleback10.png" />
+    <Image Include="assets\ignore\battleback2.png" />
+    <Image Include="assets\ignore\battleback3.png" />
+    <Image Include="assets\ignore\battleback4.png" />
+    <Image Include="assets\ignore\battleback5.png" />
+    <Image Include="assets\ignore\battleback6.png" />
+    <Image Include="assets\ignore\battleback7.png" />
+    <Image Include="assets\ignore\battleback8.png" />
+    <Image Include="assets\ignore\battleback9.png" />
     <Image Include="assets\ignore\beam-acid-1.png" />
     <Image Include="assets\ignore\beam-acid-2.png" />
     <Image Include="assets\ignore\beam-acid-3.png" />

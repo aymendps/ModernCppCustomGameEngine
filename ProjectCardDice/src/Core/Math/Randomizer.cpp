@@ -25,3 +25,15 @@ int Randomizer::GetRandomInt(int min, int max)
 
 	return GetRandomInt() % (max - min + 1) + min;
 }
+
+int Randomizer::GetDiceRoll(int diceCount, int diceSides)
+{
+	int result { 0 };
+
+	for (int i = 0; i < diceCount; i++)
+	{
+		result += GetRandomInt(1, diceSides);
+	}
+
+	return result;
+}

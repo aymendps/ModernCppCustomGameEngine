@@ -1,9 +1,5 @@
 #include "Component.h"
 
-Component::Component() : _owner {nullptr}
-{
-}
-
-Component::~Component()
+Component::Component(Entity* owner) : _owner {owner}
 {
 }

@@ -29,7 +29,7 @@ public:
 	/// </summary>
 	/// <param name="id">The card entity unique ID</param>
 	/// <param name="factory">The card entity factory function</param>
-	void RegisterCardEntityFactory(CardEntityUniqueID id, std::function<Entity& (std::string)> factory);
+	void RegisterCardEntityFactory(CardEntityUniqueID id, std::function<Entity* (std::string, std::string)> factory);
 
 	/// <summary>
 	/// Creates a card entity with the specified ID and gives it the specified name
@@ -37,19 +37,29 @@ public:
 	/// <param name="id">The card entity unique ID</param>
 	/// <param name="entityName">The name of the card entity</param>
 	/// <returns>Reference to the created card entity</returns>
-	Entity& CreateCardEntity(CardEntityUniqueID id, std::string entityName);
+	Entity* CreateCardEntity(CardEntityUniqueID id, std::string entityName, std::string sceneName);
 
 	/// <summary>
 	/// Creates a random card entity and gives it the specified name
 	/// </summary>
 	/// <param name="entityName">The name of the card entity</param>
 	/// <returns>Reference to the created card entity</returns>
-	Entity& CreateRandomCardEntity(std::string entityName);
+	Entity* CreateRandomCardEntity(std::string entityName, std::string sceneName);
 
 private:
-	std::unordered_map<CardEntityUniqueID, std::function<Entity& (std::string)>> _cardEntityFactories;
+	std::unordered_map<CardEntityUniqueID, std::function<Entity* (std::string, std::string)>> _cardEntityFactories;
 
 	// Private constructor for singleton pattern
 	CardCollection() {};
 };
+
+inline Entity* CreateCardEntity(CardEntityUniqueID id, std::string entityName, std::string sceneName)
+{
+	return CardCollection::GetInstance().CreateCardEntity(id, entityName, sceneName);
+}
+
+inline Entity* CreateRandomCardEntity(std::string entityName, std::string sceneName)
+{
+	return CardCollection::GetInstance().CreateRandomCardEntity(entityName, sceneName);
+}
 

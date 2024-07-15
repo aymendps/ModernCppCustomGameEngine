@@ -26,8 +26,8 @@ public:
 	/// <param name="wrapLength">Length to wrap the text at. 0 for no wrapping</param>
 	/// <param name="color">Color to render the text in. This is white by default</param>
 	/// <returns>Pointer to the loaded font texture</returns>
-	static SDL_Font* const LoadFontTexture(FontFamily font, int fontSize, const char* text, bool bold = false, int outlineSize = 1,
-		int wrapLength = 0, SDL_Color color = {255, 255, 255});
+	static SDL_Font* const LoadFontTexture(FontFamily font, int fontSize, const char* text, bool bold = false, int outlineSize = 2,
+		int wrapLength = 0, SDL_Color color = {255, 255, 255, 255});
 
 	/// <summary>
 	/// Renders a texture to the screen.

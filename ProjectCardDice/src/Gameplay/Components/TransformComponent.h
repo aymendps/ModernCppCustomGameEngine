@@ -11,12 +11,13 @@ public:
 	Vector2D size;
 	float scale;
 
-	TransformComponent();
-	TransformComponent(const float x, const float y, const float w, const float h, const float scale = 1);
+	TransformComponent(Entity* owner);
+	TransformComponent(Entity* owner, float x, float y, float w, float h, float scale = 1.0f);
 	~TransformComponent();
 
 	// Inherited via Component
 	virtual void Init() override;
+	virtual void HandleEvents(SDL_Event& event) override;
 	virtual void Update(const float deltaTime) override;
 	virtual void Render() override;
 

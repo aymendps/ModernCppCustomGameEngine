@@ -13,10 +13,8 @@ public:
 	static constexpr int GAME_WIDTH = 1920;
 	static constexpr bool GAME_FULLSCREEN = true;
 
-	static SDL_Renderer* renderer;
-
 	Game();
-	~Game();
+	~Game() = default;
 
 	/// <summary>
 	/// Initializes the necessary resources for the game, creating the game window and renderer in the process
@@ -55,8 +53,15 @@ public:
 	/// </summary>
 	bool IsRunning() const { return _isRunning; }
 
+	/// <summary>
+	/// Returns a pointer to the game's renderer. Use this to render elements using SDL.
+	/// </summary>
+	static SDL_Renderer* const GetRenderer() { return _renderer; }
+
 private:
+	static SDL_Renderer* _renderer;
 	SDL_Window* _window;
 	bool _isRunning;
+
 };
 

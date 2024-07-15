@@ -3,7 +3,7 @@
 #include "../../Core/EC/Entity.h"
 #include "../../Core/Managers/TextureManager.h"
 
-const Vector2D CardComponent::DEFAULT_CARD_SIZE = { 200, 300 };
+const Vector2D CardComponent::DEFAULT_CARD_SIZE = { 250, 375 };
 
 const std::unordered_map<CardCategory, SDL_Color> CardComponent::CARD_CATEGORY_COLORS = {
 	{ CardCategory::PYRO, { 255, 0, 30, 255 } },
@@ -18,7 +18,7 @@ const std::unordered_map<CardCategory, SDL_Color> CardComponent::CARD_CATEGORY_C
 	{ CardCategory::NEUTRAL, { 200, 200, 200, 255 } }
 };
 
-CardComponent::CardComponent(CardConfiguration cardConfiguration) : _cardConfiguration { cardConfiguration }, _transform { nullptr }, 
+CardComponent::CardComponent(Entity* owner, CardConfiguration cardConfiguration) : Component(owner), _cardConfiguration { cardConfiguration }, _transform { nullptr }, 
 _destinationRect { 0, 0, 0, 0 }, _cardCategoryColor { 120, 120, 120, 255 }
 {
 }
@@ -31,15 +31,21 @@ void CardComponent::Init()
 {
 	std::cout << *this << std::endl;
 
-	_transform = &_owner->GetComponent<TransformComponent>();
-	_transform->size = DEFAULT_CARD_SIZE;
 	_cardCategoryColor = CARD_CATEGORY_COLORS.at(_cardConfiguration.cardCategory);
+
+	// Initialize transform component
+	_transform = _owner->GetComponent<TransformComponent>();
+	_transform->size = DEFAULT_CARD_SIZE;
 
 	// Create textures and fonts for the card
 	_thumbnailTexture.reset(TextureManager::LoadTexture(_cardConfiguration.thumbnailPath));
-	_costFont.reset(TextureManager::LoadFontTexture(FontFamily::Arial, 30, std::to_string(_cardConfiguration.cost).c_str()));
-	_nameFont.reset(TextureManager::LoadFontTexture(FontFamily::Arial, 20, _cardConfiguration.name.c_str()));
-	_descriptionFont.reset(TextureManager::LoadFontTexture(FontFamily::Arial, 16, _cardConfiguration.description.c_str(), false, 1, 178));
+	_costFont.reset(TextureManager::LoadFontTexture(FontFamily::Arial, 36, std::to_string(_cardConfiguration.cost).c_str()));
+	_nameFont.reset(TextureManager::LoadFontTexture(FontFamily::Arial, 26, _cardConfiguration.name.c_str()));
+	_descriptionFont.reset(TextureManager::LoadFontTexture(FontFamily::Arial, 20, _cardConfiguration.description.c_str(), false, 2, 222));
+}
+
+void CardComponent::HandleEvents(SDL_Event& event)
+{
 }
 
 void CardComponent::Update(const float deltaTime)
@@ -59,66 +65,104 @@ void CardComponent::Render()
 void CardComponent::RenderCardBackground() const
 {
 	// Render fill rect that will serve as the border of the card once all other elements are rendered on top of it
-	SDL_SetRenderDrawColor(Game::renderer, _cardCategoryColor.r, _cardCategoryColor.g, _cardCategoryColor.b, _cardCategoryColor.a);
-	SDL_RenderFillRect(Game::renderer, &_destinationRect);
+	SDL_SetRenderDrawColor(Game::GetRenderer(), _cardCategoryColor.r, _cardCategoryColor.g, _cardCategoryColor.b, _cardCategoryColor.a);
+	SDL_RenderFillRect(Game::GetRenderer(), &_destinationRect);
 }
 
 void CardComponent::RenderCardThumbnail() const
 {
-	// Render border around the thumbnail
-	SDL_Rect thumbnailBorderRect = { _destinationRect.x + 5, _destinationRect.y + 50, _destinationRect.w - 10, 140 };
-	SDL_SetRenderDrawColor(Game::renderer, _cardCategoryColor.r, _cardCategoryColor.g, _cardCategoryColor.b, _cardCategoryColor.a);
-	SDL_RenderFillRect(Game::renderer, &thumbnailBorderRect);
-
 	// Render thumbnail below the card name
-	SDL_Rect thumbnailRect = { _destinationRect.x + 5, _destinationRect.y + 55, _destinationRect.w - 10, 130 };
+	SDL_Rect thumbnailRect = { 
+		_destinationRect.x + static_cast<int>(6 * _transform->scale), 
+		_destinationRect.y + static_cast<int>(69 * _transform->scale),
+		_destinationRect.w - static_cast<int>(12 * _transform->scale),
+		static_cast<int>(162 * _transform->scale)
+	};
 	TextureManager::RenderTexture(_thumbnailTexture.get(), &thumbnailRect);
+
+	// Render border around the thumbnail
+	SDL_SetRenderDrawColor(Game::GetRenderer(), 0, 0, 0, 255);
+	SDL_RenderDrawRect(Game::GetRenderer(), &thumbnailRect);
 }
 
 void CardComponent::RenderCardName() const
 {
-	// Render name background on top of the card
-	SDL_Rect nameBackgroundRect = { _destinationRect.x + 5, _destinationRect.y + 5, _destinationRect.w - 10, 45 };
-	SDL_SetRenderDrawColor(Game::renderer, static_cast<Uint8>(_cardCategoryColor.r * 1.5f), static_cast<Uint8>(_cardCategoryColor.g * 1.5f),
+	// Render name background and border on top of the card
+	SDL_Rect nameBackgroundRect = {
+		_destinationRect.x + static_cast<int>(6 * _transform->scale),
+		_destinationRect.y + static_cast<int>(6 * _transform->scale),
+		_destinationRect.w - static_cast<int>(12 * _transform->scale),
+		static_cast<int>(56 * _transform->scale)
+	};
+	SDL_SetRenderDrawColor(Game::GetRenderer(), static_cast<Uint8>(_cardCategoryColor.r * 1.5f), static_cast<Uint8>(_cardCategoryColor.g * 1.5f),
 		static_cast<Uint8>(_cardCategoryColor.b * 1.5f), _cardCategoryColor.a);
-	SDL_RenderFillRect(Game::renderer, &nameBackgroundRect);
+	SDL_RenderFillRect(Game::GetRenderer(), &nameBackgroundRect);
+	SDL_SetRenderDrawColor(Game::GetRenderer(), 0, 0, 0, 255);	
+	SDL_RenderDrawRect(Game::GetRenderer(), &nameBackgroundRect);
 
 	// Render card name on top of the background above and make sure it's centered horizontally and vertically
-	SDL_Rect nameFontRect = { _destinationRect.x + (_destinationRect.w / 2) - (_nameFont.get()->width / 2)
-		, _destinationRect.y + 15, _nameFont.get()->width, _nameFont.get()->height};
-	TextureManager::RenderTexture(_nameFont.get()->texture, &nameFontRect);
+	SDL_Rect nameFontRect = { 
+		_destinationRect.x + (_destinationRect.w / 2) - static_cast<int>(_nameFont->width * _transform->scale / 2),
+		_destinationRect.y + static_cast<int>(18 * _transform->scale),
+		static_cast<int>(_nameFont->width * _transform->scale),
+		static_cast<int>(_nameFont->height * _transform->scale)
+	};
+	TextureManager::RenderTexture(_nameFont->texture, &nameFontRect);
 }
 
 void CardComponent::RenderCardCost() const
 {
-	// Render cost background on top left of the card
-	SDL_Rect costBackgroundRect = { _destinationRect.x - 12, _destinationRect.y - 18, 30, 30 };
-	SDL_SetRenderDrawColor(Game::renderer, 0, 155, 255, 255);
-	SDL_RenderFillRect(Game::renderer, &costBackgroundRect);
+	// Render cost background and border on top left of the card
+	SDL_Rect costBackgroundRect = { 
+		_destinationRect.x - static_cast<int>(15 * _transform->scale),
+		_destinationRect.y - static_cast<int>(23 * _transform->scale),
+		static_cast<int>(38 * _transform->scale),
+		static_cast<int>(38 * _transform->scale)
+	};
+	SDL_SetRenderDrawColor(Game::GetRenderer(), 0, 155, 255, 255);
+	SDL_RenderFillRect(Game::GetRenderer(), &costBackgroundRect);
+	SDL_SetRenderDrawColor(Game::GetRenderer(), 0, 0, 0, 255);
+	SDL_RenderDrawRect(Game::GetRenderer(), &costBackgroundRect);
 
 	// Render card cost on top of the background above and make sure it's centered horizontally and vertically
-	SDL_Rect costFontRect = { _destinationRect.x - 12 + (30 / 2) - (_costFont.get()->width / 2),
-		_destinationRect.y - 20, _costFont.get()->width, _costFont.get()->height };
-	TextureManager::RenderTexture(_costFont.get()->texture, &costFontRect);
+	SDL_Rect costFontRect = { 
+		_destinationRect.x + static_cast<int>(4 * _transform->scale - (_costFont->width * _transform->scale / 2)),
+		_destinationRect.y - static_cast<int>(25 * _transform->scale), 
+		static_cast<int>(_costFont->width * _transform->scale),
+		static_cast<int>(_costFont->height * _transform->scale)
+	};
+	TextureManager::RenderTexture(_costFont->texture, &costFontRect);
 }
 
 void CardComponent::RenderCardDescription() const
 {
-	// Render description background below the thumbnail
-	SDL_Rect descriptionBackgroundRect = { _destinationRect.x + 5, _destinationRect.y + 190, _destinationRect.w - 10, 105 };
-	SDL_SetRenderDrawColor(Game::renderer, static_cast<Uint8>(_cardCategoryColor.r * 1.5f), static_cast<Uint8>(_cardCategoryColor.g * 1.5f),
+	// Render description background and border below the thumbnail
+	SDL_Rect descriptionBackgroundRect = { 
+		_destinationRect.x + static_cast<int>(6 * _transform->scale),
+		_destinationRect.y + static_cast<int>(237 * _transform->scale),
+		_destinationRect.w - static_cast<int>(12 * _transform->scale),
+		static_cast<int>(131 * _transform->scale)
+	};
+	SDL_SetRenderDrawColor(Game::GetRenderer(), static_cast<Uint8>(_cardCategoryColor.r * 1.5f), static_cast<Uint8>(_cardCategoryColor.g * 1.5f),
 		static_cast<Uint8>(_cardCategoryColor.b * 1.5f), _cardCategoryColor.a);
-	SDL_RenderFillRect(Game::renderer, &descriptionBackgroundRect);
+	SDL_RenderFillRect(Game::GetRenderer(), &descriptionBackgroundRect);
+	SDL_SetRenderDrawColor(Game::GetRenderer(), 0, 0, 0, 255);
+	SDL_RenderDrawRect(Game::GetRenderer(), &descriptionBackgroundRect);
 
 	// Render card description on top of the background above
-	SDL_Rect descFontRect = { _destinationRect.x + 12, _destinationRect.y + 195, _descriptionFont.get()->width, _descriptionFont.get()->height };
-	TextureManager::RenderTexture(_descriptionFont.get()->texture, &descFontRect);
+	SDL_Rect descFontRect = { 
+		_destinationRect.x + static_cast<int>(15 * _transform->scale),
+		_destinationRect.y + static_cast<int>(244 * _transform->scale),
+		static_cast<int>(_descriptionFont->width * _transform->scale),
+		static_cast<int>(_descriptionFont->height * _transform->scale)
+	};
+	TextureManager::RenderTexture(_descriptionFont->texture, &descFontRect);
 }
 
 std::ostream& operator<<(std::ostream& os, const CardComponent& card)
 {
-	os << "CardComponent: " << card._cardConfiguration.name << " | " << card._cardConfiguration.description << " | " <<
-		card._cardConfiguration.diceRoll.first << "d" << card._cardConfiguration.diceRoll.second << " + " <<
+	os << "CardComponent: " << card._cardConfiguration.name << " | " << card._cardConfiguration.description.substr(0, 20) << "..." << " | " 
+		<< card._cardConfiguration.diceRoll.first << "d" << card._cardConfiguration.diceRoll.second << " + " <<
 		card._cardConfiguration.diceModifiers.first << "d" << card._cardConfiguration.diceModifiers.second << " | " << "CardCategory: " <<
 		static_cast<int>(card._cardConfiguration.cardCategory) << " | " << "TargetType: " << static_cast<int>(card._cardConfiguration.targetType) 
 		<< " | " << "Costs: " << card._cardConfiguration.cost;

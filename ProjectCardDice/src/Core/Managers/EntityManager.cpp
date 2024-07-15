@@ -1,28 +1,28 @@
 #include "EntityManager.h"
 
+void EntityManager::HandleEvents(SDL_Event& event)
+{
+	for (auto& entityEntry : _entitiesByUniqueName) {
+		entityEntry.second->HandleEvents(event);
+	}
+}
+
 void EntityManager::Update(const float deltaTime)
 {
-	for (auto& entity : _entities) {
-		entity->Update(deltaTime);
+	for (auto& entityEntry : _entitiesByUniqueName) {
+		entityEntry.second->Update(deltaTime);
 	}
 }
 
 void EntityManager::Render()
 {
-	for (auto& entity : _entities) {
-		entity->Render();
+	for (auto& entityEntry : _entitiesByUniqueName) {
+		entityEntry.second->Render();
 	}
 }
 
 void EntityManager::Refresh()
 {
-	// Using the erase-remove idiom to remove entities that are not active from the vector of entities
-	_entities.erase(std::remove_if(std::begin(_entities), std::end(_entities),
-		[](const std::shared_ptr<Entity>& entityPtr) {
-			return !entityPtr->IsActive();
-		}), 
-		std::end(_entities));
-
 	// Remove all entities that are not active from the map of entities by unique name
 	// (Don't forget: Can't use remove_if on associative containers)
 	for (auto it = _entitiesByUniqueName.begin(); it != _entitiesByUniqueName.end();) {
@@ -36,36 +36,65 @@ void EntityManager::Refresh()
 	}
 }
 
-Entity& EntityManager::CreateEntity(const std::string uniqueName)
+Entity* EntityManager::CreateEntity(const std::string& uniqueName)
 {
 	// Check if an entity with the given unique name already exists
 	if (auto checkEntity = GetEntity(uniqueName); checkEntity != nullptr) {
 		std::cout << "\033[31m" << "Entity with unique name '" << uniqueName << "' already exists!" << "\033[0m" << std::endl;
-		return *checkEntity;
+		return checkEntity;
 	}
 
-	auto newEntity { std::shared_ptr<Entity>(new Entity()) };
-	newEntity->_uniqueName = uniqueName;
+	// Create a new entity with the given unique name and add it to the map
+	_entitiesByUniqueName[uniqueName] = std::move(std::unique_ptr<Entity>{new Entity(uniqueName)});
 
-	// Add the entity to the vector of entities so it can be updated and rendered
-	_entities.push_back(std::move(newEntity));
-
-	// Add the entity to the map so it can be found by its unique name
-	_entitiesByUniqueName[uniqueName] = _entities.back();
-
-	return *_entities.back();
+	return _entitiesByUniqueName[uniqueName].get();
 }
 
-Entity* EntityManager::GetEntity(const std::string uniqueName) const
+Entity* EntityManager::GetEntity(const std::string& uniqueName) const
 {
 	// Find the entity with the given unique name in the map
-	auto entity = _entitiesByUniqueName.find(uniqueName);
+	auto entityEntry = _entitiesByUniqueName.find(uniqueName);
 
 	// If the entity was found, return a pointer to it
-	if (entity != _entitiesByUniqueName.end()) {
-		return entity->second.get();
+	if (entityEntry != _entitiesByUniqueName.end()) {
+		return entityEntry->second.get();
 	}
 
 	// If the entity was not found, return a nullptr
 	return nullptr;
+}
+
+std::vector<Entity*> EntityManager::GetAllEntities() const
+{
+	std::vector<Entity*> entities;
+
+	// Iterate through all entities in the map and add them to the vector
+	for (auto& entityEntry : _entitiesByUniqueName) {
+		entities.push_back(entityEntry.second.get());
+	}
+
+	return entities;
+}
+
+bool EntityManager::DestroyEntity(const std::string& uniqueName)
+{
+	// Find the entity with the given unique name in the map
+	auto entityEntry = _entitiesByUniqueName.find(uniqueName);
+
+	// If the entity was found, mark it for deletion and return true, otherwise return false
+	if (entityEntry != _entitiesByUniqueName.end()) {
+		entityEntry->second->Destroy();
+		return true;
+	}
+
+	return false;
+}
+
+void EntityManager::DestroyAllEntities()
+{
+	std::cout << "Destroying all entities within the current Scene" << std::endl;
+	
+	for (auto& entityEntry : _entitiesByUniqueName) {
+		entityEntry.second->Destroy();
+	}
 }

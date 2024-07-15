@@ -24,6 +24,15 @@ public:
 	/// Returns a random integer between min and max. Max is replaced by 100000 if it is greater than that.
 	/// </summary>
 	static int GetRandomInt(int min, int max);
+
+	/// <summary>
+	/// Generates the result of rolling the given amount of dice with the given amount of sides.
+	/// </summary>
+	/// <param name="diceCount">The amount of dice to roll</param>
+	/// <param name="diceSides">The amount of sides each dice has</param>
+	/// <returns>The result of the dice roll</returns>
+	static int GetDiceRoll(int diceCount, int diceSides);
+
 private:
 	static std::mt19937 _generator;
 	static std::uniform_int_distribution<int> _distribution;

@@ -2,21 +2,25 @@
 #include <bitset>
 #include <iostream>
 #include <array>
+#include <concepts>
 
 class Component;
 
+template <typename T>
+concept ComponentType = std::is_base_of<Component, T>::value;
+
+// Represents the unique ID of a component type.
 using ComponentTypeID = size_t;
  
-// Returns the next ID each time it is called (starting at 0)
+// Returns the next ID each time it is called (starting at 0).
 inline ComponentTypeID GetComponentTypeID() {
 	static ComponentTypeID lastID = 0;
 	return lastID++;
 }
 
-// Returns the unique ID for each type of component
-template <typename T> 
+// Returns the unique ID of the component type represented by T. This works because each version of the templated function has its own instance of the static variables.
+template <typename T> requires ComponentType<T>
 inline ComponentTypeID GetComponentTypeID() noexcept {
-	static_assert (std::is_base_of<Component, T>::value, "T must be a subclass of Component");
 	static ComponentTypeID uniqueTypeID = GetComponentTypeID();
 	static bool ShouldLog = true;
 
@@ -28,6 +32,7 @@ inline ComponentTypeID GetComponentTypeID() noexcept {
 	return uniqueTypeID;
 }
 
+// The maximum number of component types that can be added to a single entity.
 constexpr size_t maxComponentTypes = 32;
 
 // When a component is added to an entity, the bit at its index (ID) in the bitset is set to 1, otherwise it is 0.
@@ -44,13 +49,19 @@ class Component
 	friend class Entity;
 
 public:
-	Component();
-	virtual ~Component();
+	Component(Entity* owner);
+	virtual ~Component() = default;
 
 	/// <summary>
 	/// Initializes the necessary data for the component.
 	/// </summary>
 	virtual void Init() = 0;
+
+	/// <summary>
+	/// Handles events like SDL events and inputs.
+	/// </summary>
+	/// <param name="event">Polled event from SDL to handle</param>
+	virtual void HandleEvents(union SDL_Event& event) = 0;
 
 	/// <summary>
 	/// Runs every frame and updates the component's data.
@@ -64,6 +75,7 @@ public:
 	virtual void Render() = 0;
 
 protected:
-	Entity* _owner;
+	// The entity that owns this component, and possibly other components.
+	Entity* const _owner;
 };
 

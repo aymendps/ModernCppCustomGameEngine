@@ -9,7 +9,7 @@ const std::unordered_map<FontFamily, const char*> TextureManager::_fontPaths = {
 SDL_Texture* const TextureManager::LoadTexture(const char* filePath)
 {
 	auto surface = IMG_Load(filePath);
-	auto texture = SDL_CreateTextureFromSurface(Game::renderer, surface);
+	auto texture = SDL_CreateTextureFromSurface(Game::GetRenderer(), surface);
 
 	SDL_FreeSurface(surface);
 
@@ -32,14 +32,14 @@ SDL_Font* const TextureManager::LoadFontTexture(FontFamily font, int fontSize, c
 		TTF_SetFontStyle(ttfFont, TTF_STYLE_BOLD);
 		TTF_SetFontStyle(ttfOutline, TTF_STYLE_BOLD);
 	}
-
+	
 	// Create the main surface depending on whether or not we want to wrap the text
-	auto surface = wrapLength != 0 ? TTF_RenderText_Blended_Wrapped(ttfFont, text, color, wrapLength)
-		: TTF_RenderText_Blended(ttfFont, text, color);
+	auto surface = wrapLength != 0 ? TTF_RenderUTF8_Blended_Wrapped(ttfFont, text, color, wrapLength)
+		: TTF_RenderUTF8_Blended(ttfFont, text, color);
 
 	// Create the outline surface depending on whether or not we want to wrap the text
-	auto outlineSurface = wrapLength != 0 ? TTF_RenderText_Blended_Wrapped(ttfOutline, text, { 0, 0, 0 }, wrapLength)
-		: TTF_RenderText_Blended(ttfOutline, text, { 0, 0, 0 });
+	auto outlineSurface = wrapLength != 0 ? TTF_RenderUTF8_Blended_Wrapped(ttfOutline, text, { 0, 0, 0 }, wrapLength)
+		: TTF_RenderUTF8_Blended(ttfOutline, text, { 0, 0, 0 });
 
 	// Add the main surface on top of the outline surface
 	SDL_SetSurfaceBlendMode(surface, SDL_BLENDMODE_BLEND);
@@ -47,7 +47,7 @@ SDL_Font* const TextureManager::LoadFontTexture(FontFamily font, int fontSize, c
 	SDL_BlitSurface(surface, nullptr, outlineSurface, &blitRect);
 
 	// Create the texture from the outline surface now that it has the main surface on top of it
-	auto texture = SDL_CreateTextureFromSurface(Game::renderer, outlineSurface);
+	auto texture = SDL_CreateTextureFromSurface(Game::GetRenderer(), outlineSurface);
 
 	// Using new here because this function does not own the pointer, the caller does and is responsible for deleting it
 	SDL_Font* finalFont = new SDL_Font { texture, surface->w, surface->h };
@@ -62,5 +62,5 @@ SDL_Font* const TextureManager::LoadFontTexture(FontFamily font, int fontSize, c
 
 void TextureManager::RenderTexture(SDL_Texture* const texture, SDL_Rect* const destination, SDL_Rect* const source, SDL_RendererFlip flip)
 {
-	SDL_RenderCopyEx(Game::renderer, texture, source, destination, 0.0, nullptr, flip);
+	SDL_RenderCopyEx(Game::GetRenderer(), texture, source, destination, 0.0, nullptr, flip);
 }
