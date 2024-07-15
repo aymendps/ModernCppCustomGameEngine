@@ -13,13 +13,14 @@ struct CharacterConfiguration {
 class CharacterComponent : public Component
 {
 public:
-	CharacterComponent(CharacterConfiguration configuration);
+	CharacterComponent(Entity* owner, CharacterConfiguration configuration);
 	~CharacterComponent();
 
 	// Inherited via Component
-	void Init() override;
-	void Update(const float deltaTime) override;
-	void Render() override;
+	virtual void Init() override;
+	virtual void HandleEvents(SDL_Event& event) override;
+	virtual void Update(const float deltaTime) override;
+	virtual void Render() override;
 
 	void TakeDamage(int amount);
 	void HealDamage(int amount);

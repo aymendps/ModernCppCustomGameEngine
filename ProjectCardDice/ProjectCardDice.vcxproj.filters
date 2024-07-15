@@ -51,10 +51,10 @@
     <ClCompile Include="src\Core\Math\Vector2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Gameplay\Scenes\Scene.cpp">
+    <ClCompile Include="src\Core\EC\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Gameplay\Scenes\SceneManager.cpp">
+    <ClCompile Include="src\Core\Managers\SceneManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Gameplay\Scenes\TestScene.cpp">
@@ -78,13 +78,16 @@
     <ClCompile Include="src\Core\CustomDestroyers\SDL_FontDestroyer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Gameplay\Scenes\BattleScene.cpp">
+    <ClCompile Include="src\Gameplay\Scenes\TestScene2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Gameplay\Components\CharacterComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Core\Events\Hoverable.cpp">
+    <ClCompile Include="src\Core\Events\MouseEvents.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gameplay\Components\EnemyComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -116,10 +119,10 @@
     <ClInclude Include="src\Core\Math\Vector2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Gameplay\Scenes\Scene.h">
+    <ClInclude Include="src\Core\EC\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Gameplay\Scenes\SceneManager.h">
+    <ClInclude Include="src\Core\Managers\SceneManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Gameplay\Scenes\TestScene.h">
@@ -143,13 +146,16 @@
     <ClInclude Include="src\Core\CustomDestroyers\SDL_FontDestroyer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Gameplay\Scenes\BattleScene.h">
+    <ClInclude Include="src\Gameplay\Scenes\TestScene2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Gameplay\Components\CharacterComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Core\Events\Hoverable.h">
+    <ClInclude Include="src\Core\Events\MouseEvents.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gameplay\Components\EnemyComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

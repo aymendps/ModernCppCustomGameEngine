@@ -1,11 +1,14 @@
 #include "Entity.h"
 
-Entity::Entity() : _isActive {true}, _componentPointers {}
+Entity::Entity(const std::string& uniqueName) : _uniqueName{ uniqueName }, _isActive{ true }, _componentIdToPointer{}
 {
 }
 
-Entity::~Entity()
+void Entity::HandleEvents(SDL_Event& event)
 {
+	for (auto& component : _components) {
+		component->HandleEvents(event);
+	}
 }
 
 void Entity::Update(const float deltaTime)

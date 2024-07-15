@@ -1,13 +1,12 @@
 #pragma once
-#include "Scene.h"
+#include "../../Core/EC/Scene.h"
 
-class BattleScene : public Scene
+class TestScene2 : public Scene
 {
 	// Inherited via Scene
 	void Init() override;
 	void HandleEvents(SDL_Event& event) override;
 	void Update(const float deltaTime) override;
 	void Render() override;
-	void Destroy() override;
 };
 

@@ -6,11 +6,12 @@
 class SpriteComponent : public Component
 {
 public:
-	SpriteComponent(const char* filePath);
+	SpriteComponent(Entity* owner, const char* filePath);
 	~SpriteComponent();
 
 	// Inherited via Component
 	virtual void Init() override;
+	virtual void HandleEvents(SDL_Event& event) override;
 	virtual void Update(const float deltaTime) override;
 	virtual void Render() override;
 

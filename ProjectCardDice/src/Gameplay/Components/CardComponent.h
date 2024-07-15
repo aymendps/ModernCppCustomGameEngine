@@ -75,13 +75,14 @@ public:
 	static constexpr SDL_Color DEFAULT_CARD_BACKGROUND_COLOR = { 50, 50, 50, 255 };
 	static const std::unordered_map<CardCategory, SDL_Color> CARD_CATEGORY_COLORS;
 
-	CardComponent(CardConfiguration cardConfiguration);
+	CardComponent(Entity* owner, CardConfiguration cardConfiguration);
 	~CardComponent();
 
 	// Inherited via Component
-	void Init() override;
-	void Update(const float deltaTime) override;
-	void Render() override;
+	virtual void Init() override;
+	virtual void HandleEvents(union SDL_Event& event) override;
+	virtual void Update(const float deltaTime) override;
+	virtual void Render() override;
 
 	friend std::ostream& operator<<(std::ostream& os, const CardComponent& card);
 

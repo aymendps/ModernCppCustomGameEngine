@@ -84,7 +84,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>C:\Dev\SDL2_image\include;C:\Dev\SDL2\include;C:\Dev\SDL2_ttf\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -120,7 +120,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Dev\SDL2_image\include;C:\Dev\SDL2\include;C:\Dev\SDL2_ttf\include</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -149,17 +149,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\Core\Events\Hoverable.cpp" />
+    <ClCompile Include="src\Gameplay\Components\EnemyComponent.cpp" />
+    <ClCompile Include="src\Core\Events\MouseEvents.cpp" />
     <ClCompile Include="src\Gameplay\Components\CharacterComponent.cpp" />
-    <ClCompile Include="src\Gameplay\Scenes\BattleScene.cpp" />
+    <ClCompile Include="src\Gameplay\Scenes\TestScene2.cpp" />
     <ClCompile Include="src\Core\CustomDestroyers\SDL_FontDestroyer.cpp" />
     <ClCompile Include="src\Core\Fonts\SDL_Font.cpp" />
     <ClCompile Include="src\Core\Math\Randomizer.cpp" />
     <ClCompile Include="src\Gameplay\Collections\CardCollection.cpp" />
     <ClCompile Include="src\Gameplay\Builders\CardEntityBuilder.cpp" />
     <ClCompile Include="src\Gameplay\Components\CardComponent.cpp" />
-    <ClCompile Include="src\Gameplay\Scenes\SceneManager.cpp" />
-    <ClCompile Include="src\Gameplay\Scenes\Scene.cpp" />
+    <ClCompile Include="src\Core\Managers\SceneManager.cpp" />
+    <ClCompile Include="src\Core\EC\Scene.cpp" />
     <ClCompile Include="src\Gameplay\Components\SpriteComponent.cpp" />
     <ClCompile Include="src\Core\Managers\EntityManager.cpp" />
     <ClCompile Include="src\Core\EC\Entity.cpp" />
@@ -170,20 +171,24 @@
     <ClCompile Include="src\Core\Managers\TextureManager.cpp" />
     <ClCompile Include="src\Gameplay\Components\TransformComponent.cpp" />
     <ClCompile Include="src\Core\Math\Vector2D.cpp" />
-    <ClCompile Include="src\Gameplay\Scenes\TestScene.cpp" />
+    <ClCompile Include="src\Gameplay\Scenes\TestScene.cpp">
+      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdcpp20</LanguageStandard>
+      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdcpp20</LanguageStandard>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Core\Events\Hoverable.h" />
+    <ClInclude Include="src\Gameplay\Components\EnemyComponent.h" />
+    <ClInclude Include="src\Core\Events\MouseEvents.h" />
     <ClInclude Include="src\Gameplay\Components\CharacterComponent.h" />
-    <ClInclude Include="src\Gameplay\Scenes\BattleScene.h" />
+    <ClInclude Include="src\Gameplay\Scenes\TestScene2.h" />
     <ClInclude Include="src\Core\CustomDestroyers\SDL_FontDestroyer.h" />
     <ClInclude Include="src\Core\Fonts\SDL_Font.h" />
     <ClInclude Include="src\Core\Math\Randomizer.h" />
     <ClInclude Include="src\Gameplay\Collections\CardCollection.h" />
     <ClInclude Include="src\Gameplay\Builders\CardEntityBuilder.h" />
     <ClInclude Include="src\Gameplay\Components\CardComponent.h" />
-    <ClInclude Include="src\Gameplay\Scenes\SceneManager.h" />
-    <ClInclude Include="src\Gameplay\Scenes\Scene.h" />
+    <ClInclude Include="src\Core\Managers\SceneManager.h" />
+    <ClInclude Include="src\Core\EC\Scene.h" />
     <ClInclude Include="src\Gameplay\Components\SpriteComponent.h" />
     <ClInclude Include="src\Core\Managers\EntityManager.h" />
     <ClInclude Include="src\Core\EC\Entity.h" />

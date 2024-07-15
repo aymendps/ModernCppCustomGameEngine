@@ -1,10 +1,10 @@
 #include "CharacterComponent.h"
 #include "../../Core/EC/Entity.h"
-#include "../../Core/Events/Hoverable.h"
+#include "../../Core/Events/MouseEvents.h"
 #include "../../Core/Managers/TextureManager.h"
 #include "../../Game.h"
 
-CharacterComponent::CharacterComponent(CharacterConfiguration configuration) : _configuration { configuration }, _isDead { false }, _transform { nullptr },
+CharacterComponent::CharacterComponent(Entity* owner, CharacterConfiguration configuration) : Component(owner), _configuration{ configuration }, _isDead{ false }, _transform{ nullptr },
 _destinationRect { 0, 0, 0, 0 }, _lastHealth { configuration.currentHealth }, _lastShield { configuration.currentShield }
 {
 }
@@ -15,11 +15,52 @@ CharacterComponent::~CharacterComponent()
 
 void CharacterComponent::Init()
 {
-	_transform = &_owner->GetComponent<TransformComponent>();
+	_transform = _owner->GetComponent<TransformComponent>();
 
 	// Create textures and fonts for the character
 	_nameFont.reset(TextureManager::LoadFontTexture(FontFamily::Arial, 30, _configuration.name.c_str()));
 	_healthAndShieldFont.reset(TextureManager::LoadFontTexture(FontFamily::Arial, 24, HealthAndShieldToString().c_str()));
+}
+
+void CharacterComponent::HandleEvents(SDL_Event& event)
+{
+	// Testing mouse events
+
+	_destinationRect = _transform->GetDestinationRect();
+
+	if (MouseEvents::IsLeftClicked(event, _destinationRect))
+	{
+		std::cout << _configuration.name << " was left clicked!" << std::endl;
+	}
+
+	if (MouseEvents::IsRightClicked(event, _destinationRect))
+	{
+		std::cout << _configuration.name << " was right clicked!" << std::endl;
+	}
+
+	if (MouseEvents::IsLeftDoubleClicked(event, _destinationRect))
+	{
+		std::cout << _configuration.name << " was left double clicked!" << std::endl;
+	}
+
+	if (MouseEvents::IsRightDoubleClicked(event, _destinationRect))
+	{
+		std::cout << _configuration.name << " was right double clicked!" << std::endl;
+	}
+
+	Vector2D mousePosition;
+
+	if (MouseEvents::IsLeftPressed(event, _destinationRect, mousePosition))
+	{
+		std::cout << _configuration.name << " was left pressed at " << mousePosition << "!" << std::endl;
+		_transform->position.x = mousePosition.x - _destinationRect.w / 2;
+	}
+
+	if (MouseEvents::IsRightPressed(event, _destinationRect, mousePosition))
+	{
+		std::cout << _configuration.name << " was right pressed at " << mousePosition << "!" << std::endl;
+		_transform->position.y = mousePosition.y - _destinationRect.h / 2;
+	}
 }
 
 void CharacterComponent::Update(const float deltaTime)
@@ -45,7 +86,7 @@ void CharacterComponent::Render()
 void CharacterComponent::RenderName()
 {
 	// Display the name of the character above the character if it's hovered
-	if (Hoverable::IsHovered(_destinationRect))
+	if (MouseEvents::IsHovered(_destinationRect))
 	{
 		SDL_Rect nameRect = {
 		_destinationRect.x + (_destinationRect.w / 2) - static_cast<int>(_nameFont->width * _transform->scale / 2),
@@ -67,8 +108,8 @@ void CharacterComponent::RenderHealthAndShieldBar()
 		_destinationRect.w,
 		static_cast<int>(20 * _transform->scale)
 	};
-	SDL_SetRenderDrawColor(Game::renderer, 0, 0, 0, 255);
-	SDL_RenderFillRect(Game::renderer, &maxHealthBarRect);
+	SDL_SetRenderDrawColor(Game::GetRenderer(), 0, 0, 0, 255);
+	SDL_RenderFillRect(Game::GetRenderer(), &maxHealthBarRect);
 
 	// Render a healthbar foreground related to current health
 	SDL_Rect currentHealthBarRect = {
@@ -80,12 +121,12 @@ void CharacterComponent::RenderHealthAndShieldBar()
 
 	// If the character has a shield, render the healthbar in grey, otherwise render it in red
 	if(_configuration.currentShield > 0) { 
-		SDL_SetRenderDrawColor(Game::renderer, 100, 100, 100, 255);
+		SDL_SetRenderDrawColor(Game::GetRenderer(), 100, 100, 100, 255);
 	}
 	else {
-		SDL_SetRenderDrawColor(Game::renderer, 255, 0, 0, 255);
+		SDL_SetRenderDrawColor(Game::GetRenderer(), 255, 0, 0, 255);
 	}
-	SDL_RenderFillRect(Game::renderer, &currentHealthBarRect);
+	SDL_RenderFillRect(Game::GetRenderer(), &currentHealthBarRect);
 
 	// Render font that displays current health and current shield in the middle of the healthbar
 	SDL_Rect healthFontRect = {

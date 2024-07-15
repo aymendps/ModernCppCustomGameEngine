@@ -64,10 +64,10 @@ void CardEntityBuilder::Register()
 
 	// Factory function for creating the card entity
 	auto factory = [cardConfiguration]
-	(std::string entityName)->Entity& {
-		Entity& entity = EntityManager::GetInstance().CreateEntity(entityName);
-		entity.AddComponent<TransformComponent>();
-		entity.AddComponent<CardComponent>(cardConfiguration);
+	(std::string entityName, std::string sceneName)->Entity* {
+		Entity* entity = EntityManager::GetInstance().CreateEntity(entityName);
+		entity->AddComponent<TransformComponent>();
+		entity->AddComponent<CardComponent>(cardConfiguration);
 		return entity;
 	};
 

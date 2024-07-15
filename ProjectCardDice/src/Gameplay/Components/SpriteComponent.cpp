@@ -3,8 +3,7 @@
 #include "../../Core/EC/Entity.h"
 
 
-SpriteComponent::SpriteComponent(const char* filePath)
-	: _transform{ nullptr }, _destinationRect{ 0, 0, 0, 0 }
+SpriteComponent::SpriteComponent(Entity* owner, const char* filePath) : Component(owner), _transform{ nullptr }, _destinationRect{ 0, 0, 0, 0 }
 {
 	SetTexture(filePath);
 }
@@ -15,7 +14,11 @@ SpriteComponent::~SpriteComponent()
 
 void SpriteComponent::Init()
 {
-	_transform = &_owner->GetComponent<TransformComponent>();
+	_transform = _owner->GetComponent<TransformComponent>();
+}
+
+void SpriteComponent::HandleEvents(SDL_Event& event)
+{
 }
 
 void SpriteComponent::Update(const float deltaTime)

@@ -9,7 +9,11 @@ class Entity
 	friend class EntityManager;
 
 public:
-	~Entity();
+	/// <summary>
+	/// Handles the events of the entity's components like SDL events and inputs.
+	/// </summary>
+	/// <param name="event">Polled event from SDL to handle</param>
+	void HandleEvents(union SDL_Event& event);
 
 	/// <summary>
 	/// Runs every frame and updates the entitiy's components.
@@ -30,13 +34,15 @@ public:
 	/// <summary>
 	/// Returns whether or not the entity is active.
 	/// </summary>
+	/// <returns>True if the entity is active, false otherwise</returns>
 	bool IsActive() const { return _isActive; }
 	
 	/// <summary>
 	/// Returns whether or not the entity has a component of the given type.
 	/// </summary>
 	/// <typeparam name="T">The component's type</typeparam>
-	template <typename T> 
+	/// <returns>True if the entity has a component of the given type, false otherwise</returns>
+	template <typename T> requires ComponentType<T>
 	bool HasComponent() const { return _componentSignatures[GetComponentTypeID<T>()]; }
 
 	/// <summary>
@@ -44,50 +50,48 @@ public:
 	/// </summary>
 	/// <typeparam name="T">The component's type</typeparam>
 	/// <typeparam name="...TArgs">The component's constructor arguments</typeparam>
-	/// <param name="...args">The component's constructor arguments</param>
-	/// <returns>Reference to the added component</returns>
-	template <typename T, typename... TArgs>
-	T& AddComponent(TArgs&&... args) {
+	/// <param name="...args">The component's constructor arguments excluding the entity (owner) pointer which is passed automatically</param>
+	/// <returns>A pointer to the newly created component</returns>
+	template <typename T, typename... TArgs> requires ComponentType<T>
+	T* AddComponent(TArgs&&... args) 
+	{
 		// Check if the entity already has a component of the given type
 		if (HasComponent<T>()) {
 			std::cout << "\033[31m" << "Entity '" << _uniqueName << "' already has a component of type : " << typeid(T).name() << "\033[0m" << std::endl;
 			return GetComponent<T>();
-		}	
+		}
 
-		// Create a new component and set it's owner to this entity
-		std::unique_ptr<T> componentPtr = std::make_unique<T>(std::forward<TArgs>(args)...);
-		componentPtr->_owner = this;
-
-		// Update the component pointers and signatures
-		auto rawPtr = componentPtr.get();
+		// Mark that the entity has a component of the given type
 		ComponentTypeID ID = GetComponentTypeID<T>();
-		_componentPointers[ID] = rawPtr;
 		_componentSignatures[ID] = true;
 
-		componentPtr->Init();
+		// Create the new component, add it to related containers to keep track of it, and initialize it
+		_components.push_back(std::make_unique<T>(this, std::forward<TArgs>(args)...));
+		_componentIdToPointer[ID] = _components.back().get();
+		_components.back()->Init();	
 
-		_components.push_back(std::move(componentPtr));
-
-		return *rawPtr;
-	}
+		// Return a reference from _components.back() which is a unique_ptr so can't use static_pointer_cast
+		return static_cast<T*>(_components.back().get());
+	};
 
 	/// <summary>
-	/// Returns a reference to the component of the given type.
+	/// Retrieves a pointer to the component of the given type.
 	/// </summary>
 	/// <typeparam name="T">The component's type</typeparam>
-	template<typename T> T& GetComponent() const
+	/// <returns>A pointer to the component of the given type</returns>
+	template<typename T> requires ComponentType<T>
+	T* GetComponent() const
 	{
-		auto ptr(_componentPointers[GetComponentTypeID<T>()]);
-		return *static_cast<T*>(ptr);
+		return static_cast<T*>(_componentIdToPointer[GetComponentTypeID<T>()]);
 	}
 
 private:
-	Entity();
+	Entity(const std::string& uniqueName);
 
 	std::string _uniqueName;
 	std::vector<std::unique_ptr<Component>> _components;
-	ComponentArray _componentPointers;
+	ComponentArray _componentIdToPointer;
 	ComponentBitset _componentSignatures;
+	// When this is set to false, the entity will be destroyed in the next refresh.
 	bool _isActive;
-
 };

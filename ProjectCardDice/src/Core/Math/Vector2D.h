@@ -12,7 +12,7 @@ public:
 	Vector2D(float x, float y);
 	Vector2D(const Vector2D& source);
 	Vector2D(Vector2D&& source) noexcept;
-	~Vector2D();
+	~Vector2D() = default;
 
 	static const Vector2D Zero, Up, Down, Left, Right;
 

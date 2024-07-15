@@ -97,7 +97,7 @@ void CardCollection::Init()
 		.Register();
 }
 
-void CardCollection::RegisterCardEntityFactory(CardEntityUniqueID id, std::function<Entity& (std::string)> factory)
+void CardCollection::RegisterCardEntityFactory(CardEntityUniqueID id, std::function<Entity* (std::string, std::string)> factory)
 {
 	// Don't register card factory if card entity ID is already registered
 	if (_cardEntityFactories.find(id) != _cardEntityFactories.end())
@@ -110,16 +110,16 @@ void CardCollection::RegisterCardEntityFactory(CardEntityUniqueID id, std::funct
 	_cardEntityFactories[id] = factory;
 }
 
-Entity& CardCollection::CreateCardEntity(CardEntityUniqueID id, std::string entityName)
+Entity* CardCollection::CreateCardEntity(CardEntityUniqueID id, std::string entityName, std::string sceneName)
 {
-	return _cardEntityFactories[id](entityName);
+	return _cardEntityFactories[id](entityName, sceneName);
 }
 
-Entity& CardCollection::CreateRandomCardEntity(std::string entityName)
+Entity* CardCollection::CreateRandomCardEntity(std::string entityName, std::string sceneName)
 {
 	// Get a random card entity ID from the enum excluding the UNDEFINED value
 	int randomID = Randomizer::GetRandomInt() % static_cast<int>(CardEntityUniqueID::UNDEFINED);
 	CardEntityUniqueID randomCardEntityID = static_cast<CardEntityUniqueID>(randomID);
 
-	return _cardEntityFactories[randomCardEntityID](entityName);
+	return _cardEntityFactories[randomCardEntityID](entityName, sceneName);
 }
