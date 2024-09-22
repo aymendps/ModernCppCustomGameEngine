@@ -87,6 +87,19 @@ public:
 	/// </summary>
 	void DestroyAllEntities();
 
+	/// <summary>
+	/// Marks all the entities that have a specific component for deletion, so they can be removed in the next refresh.
+	/// </summary>
+	/// <typeparam name="T">The type of component to look for</typeparam>
+	template <typename T>
+	void DestroyEntitiesWithComponent() {
+		for (auto& entityEntry : _entitiesByUniqueName) {
+			if (entityEntry.second->HasComponent<T>()) {
+				entityEntry.second->Destroy();
+			}
+		}
+	}
+
 private:
 	std::unordered_map<std::string, std::unique_ptr<Entity>> _entitiesByUniqueName;
 
@@ -144,5 +157,14 @@ inline bool DestroyEntity(const std::string& uniqueName) {
 /// </summary>
 inline void DestroyAllEntities() {
 	EntityManager::GetInstance().DestroyAllEntities();
+}
+
+/// <summary>
+/// Shorthand function to destroy all entities that have a specific component using the entity manager.
+/// </summary>
+/// <typeparam name="T">The type of component to look for</typeparam>
+template <typename T>
+inline void DestroyEntitiesWithComponent() {
+	EntityManager::GetInstance().DestroyEntitiesWithComponent<T>();
 }
 

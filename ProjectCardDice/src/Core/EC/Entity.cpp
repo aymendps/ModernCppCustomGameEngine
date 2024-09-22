@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "../Utils/Logger.h"
 
 Entity::Entity(const std::string& uniqueName) : _uniqueName{ uniqueName }, _isActive{ true }, _componentIdToPointer{}
 {
@@ -7,26 +8,32 @@ Entity::Entity(const std::string& uniqueName) : _uniqueName{ uniqueName }, _isAc
 void Entity::HandleEvents(SDL_Event& event)
 {
 	for (auto& component : _components) {
-		component->HandleEvents(event);
+		if (component->IsEnabled()) {
+			component->HandleEvents(event);
+		}
 	}
 }
 
 void Entity::Update(const float deltaTime)
 {
 	for (auto& component : _components) {
-		component->Update(deltaTime);
+		if(component->IsEnabled()) {
+			component->Update(deltaTime);
+		}
 	}
 }
 
 void Entity::Render()
 {
 	for (auto& component : _components) {
-		component->Render();
+		if (component->IsEnabled()) {
+			component->Render();
+		}
 	}
 }
 
 void Entity::Destroy()
 {
 	_isActive = false;
-	std::cout << "Destroying Entity: " << "'" << _uniqueName << "'" << std::endl;
+	Logger::LogLine(LogType::EntityRelated, "Destroying Entity: ", "'", _uniqueName, "'");
 }

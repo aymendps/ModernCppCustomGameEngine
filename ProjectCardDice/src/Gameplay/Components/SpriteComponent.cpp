@@ -3,7 +3,7 @@
 #include "../../Core/EC/Entity.h"
 
 
-SpriteComponent::SpriteComponent(Entity* owner, const char* filePath) : Component(owner), _transform{ nullptr }, _destinationRect{ 0, 0, 0, 0 }
+SpriteComponent::SpriteComponent(Entity* owner, ComponentTypeID typeID, const char* filePath) : Component(owner, typeID), _transform{ nullptr }, _destinationRect{ 0, 0, 0, 0 }
 {
 	SetTexture(filePath);
 }

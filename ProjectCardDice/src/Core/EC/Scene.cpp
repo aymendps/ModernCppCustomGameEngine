@@ -1,8 +1,9 @@
 #include "Scene.h"
+#include "../Utils/Logger.h"
 
 void Scene::Init()
 {
-	std::cout << "Initiating Scene: " << GetSceneName() << std::endl;
+	Logger::LogLine(LogType::SceneRelated, "Loading Scene: ", GetSceneName());
 }
 
 void Scene::HandleEvents(SDL_Event& event)
@@ -23,5 +24,5 @@ void Scene::Render()
 void Scene::Destroy()
 {
 	EntityManager::GetInstance().DestroyAllEntities();
-	std::cout << "Destroying Scene: " << GetSceneName() << std::endl;
+	Logger::LogLine(LogType::SceneRelated, "Destroying Scene: ", GetSceneName());
 }

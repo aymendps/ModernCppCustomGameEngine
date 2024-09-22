@@ -11,8 +11,8 @@ public:
 	Vector2D size;
 	float scale;
 
-	TransformComponent(Entity* owner);
-	TransformComponent(Entity* owner, float x, float y, float w, float h, float scale = 1.0f);
+	TransformComponent(Entity* owner, ComponentTypeID typeID);
+	TransformComponent(Entity* owner, ComponentTypeID typeID, float x, float y, float w, float h, float scale = 1.0f);
 	~TransformComponent();
 
 	// Inherited via Component

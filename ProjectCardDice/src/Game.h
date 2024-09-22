@@ -2,8 +2,6 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <memory>
-#include <iostream>
-#include <iomanip>
 
 class Game {
 	friend struct GameDestroyer;

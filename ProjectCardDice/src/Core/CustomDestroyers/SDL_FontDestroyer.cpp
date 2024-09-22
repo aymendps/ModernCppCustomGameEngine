@@ -1,9 +1,9 @@
 #include "SDL_FontDestroyer.h"
 #include <SDL.h>
-#include <iostream>
+#include "../Utils/Logger.h"
 
 void SDL_FontDestroyer::operator()(SDL_Font* font)
 {
-	std::cout << "Destroying a font that was rendered..." << std::endl;
+	Logger::LogLine(LogType::EngineRelated, "Destroying a font that was rendered...");
 	SDL_DestroyTexture(font->texture);
 }

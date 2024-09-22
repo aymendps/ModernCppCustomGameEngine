@@ -1,5 +1,6 @@
 #include "CardCollection.h"
 #include "../../Core/Math/Randomizer.h"
+#include "../../Core/Utils/Logger.h"
 
 void CardCollection::Init()
 {
@@ -13,7 +14,7 @@ void CardCollection::Init()
 		.DiceModifiers(0, 0)
 		.Costs(1)
 		.Targets(CardTargetType::ENEMY)
-		.ApplyEffect([]() { std::cout << "Test Card Effect" << std::endl; })
+		.ApplyEffect([]() { Logger::LogLine(LogType::Log, "Test Card Effect"); })
 		.Register();
 
 	builder.CardInfo(CardEntityUniqueID::GEO_TEST, CardCategory::GEO, "Geo Test Card", "This is a test card.")
@@ -22,7 +23,7 @@ void CardCollection::Init()
 		.DiceModifiers(0, 0)
 		.Costs(1)
 		.Targets(CardTargetType::ENEMY)
-		.ApplyEffect([]() { std::cout << "Test Card Effect" << std::endl; })
+		.ApplyEffect([]() { Logger::LogLine(LogType::Log, "Test Card Effect"); })
 		.Register();
 
 	builder.CardInfo(CardEntityUniqueID::HEXER_TEST, CardCategory::HEXER, "Hexer Test Card", "This is a test card.")
@@ -31,7 +32,7 @@ void CardCollection::Init()
 		.DiceModifiers(0, 0)
 		.Costs(1)
 		.Targets(CardTargetType::ENEMY)
-		.ApplyEffect([]() { std::cout << "Test Card Effect" << std::endl; })
+		.ApplyEffect([]() { Logger::LogLine(LogType::Log, "Test Card Effect"); })
 		.Register();
 
 	builder.CardInfo(CardEntityUniqueID::HOLY_TEST, CardCategory::HOLY, "Holy Test Card", "This is a test card.")
@@ -40,7 +41,7 @@ void CardCollection::Init()
 		.DiceModifiers(0, 0)
 		.Costs(1)
 		.Targets(CardTargetType::ENEMY)
-		.ApplyEffect([]() { std::cout << "Test Card Effect" << std::endl; })
+		.ApplyEffect([]() { Logger::LogLine(LogType::Log, "Test Card Effect"); })
 		.Register();
 
 	builder.CardInfo(CardEntityUniqueID::NECRO_TEST, CardCategory::NECRO, "Necro Test Card", "This is a test card.")
@@ -49,7 +50,7 @@ void CardCollection::Init()
 		.DiceModifiers(0, 0)
 		.Costs(1)
 		.Targets(CardTargetType::ENEMY)
-		.ApplyEffect([]() { std::cout << "Test Card Effect" << std::endl; })
+		.ApplyEffect([]() { Logger::LogLine(LogType::Log, "Test Card Effect"); })
 		.Register();
 
 	builder.CardInfo(CardEntityUniqueID::NEUTRAL_TEST, CardCategory::NEUTRAL, "Neutral Test Card", "This is a test card.")
@@ -57,7 +58,7 @@ void CardCollection::Init()
 		.DiceModifiers(0, 0)
 		.Costs(1)
 		.Targets(CardTargetType::ENEMY)
-		.ApplyEffect([]() { std::cout << "Test Card Effect" << std::endl; })
+		.ApplyEffect([]() { Logger::LogLine(LogType::Log, "Test Card Effect"); })
 		.Register();
 
 	builder.CardInfo(CardEntityUniqueID::PYRO_TEST, CardCategory::PYRO, "Pyro Test Card", "This is a test card.")
@@ -66,7 +67,7 @@ void CardCollection::Init()
 		.DiceModifiers(0, 0)
 		.Costs(1)
 		.Targets(CardTargetType::ENEMY)
-		.ApplyEffect([]() { std::cout << "Test Card Effect" << std::endl; })
+		.ApplyEffect([]() { Logger::LogLine(LogType::Log, "Test Card Effect"); })
 		.Register();
 
 	builder.CardInfo(CardEntityUniqueID::HYDRO_TEST, CardCategory::HYDRO, "Hydro Test Card", "This is a test card.")
@@ -75,7 +76,7 @@ void CardCollection::Init()
 		.DiceModifiers(0, 0)
 		.Costs(1)
 		.Targets(CardTargetType::ENEMY)
-		.ApplyEffect([]() { std::cout << "Test Card Effect" << std::endl; })
+		.ApplyEffect([]() { Logger::LogLine(LogType::Log, "Test Card Effect"); })
 		.Register();
 
 	builder.CardInfo(CardEntityUniqueID::SHADOW_TEST, CardCategory::SHADOW, "Shadow Test Card", "This is a test card.")
@@ -84,7 +85,7 @@ void CardCollection::Init()
 		.DiceModifiers(0, 0)
 		.Costs(1)
 		.Targets(CardTargetType::ENEMY)
-		.ApplyEffect([]() { std::cout << "Test Card Effect" << std::endl; })
+		.ApplyEffect([]() { Logger::LogLine(LogType::Log, "Test Card Effect"); })
 		.Register();
 
 	builder.CardInfo(CardEntityUniqueID::TEMPEST_TEST, CardCategory::TEMPEST, "Tempest Test Card", "This is a test cardaaaaa This is a test card.")
@@ -93,7 +94,7 @@ void CardCollection::Init()
 		.DiceModifiers(0, 0)
 		.Costs(2)
 		.Targets(CardTargetType::ENEMY)
-		.ApplyEffect([]() { std::cout << "Test Card Effect" << std::endl; })
+		.ApplyEffect([]() { Logger::LogLine(LogType::Log, "Test Card Effect"); })
 		.Register();
 }
 
@@ -102,11 +103,11 @@ void CardCollection::RegisterCardEntityFactory(CardEntityUniqueID id, std::funct
 	// Don't register card factory if card entity ID is already registered
 	if (_cardEntityFactories.find(id) != _cardEntityFactories.end())
 	{
-		std::cout << "\033[31m" << "Card entity factory for ID " << static_cast<int>(id) << " is already registered!" << "\033[0m" << std::endl;
+		Logger::LogLine(LogType::Warning, "Card entity factory for ID ", static_cast<int>(id), " is already registered!");
 		return;
 	}
 
-	std::cout << "\033[32m" << "Registering card entity factory for ID " << static_cast<int>(id) << "\033[0m" << std::endl;
+	Logger::LogLine(LogType::Success, "Registering card entity factory for ID ", static_cast<int>(id));
 	_cardEntityFactories[id] = factory;
 }
 

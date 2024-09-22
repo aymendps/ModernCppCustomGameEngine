@@ -6,7 +6,7 @@
 class SpriteComponent : public Component
 {
 public:
-	SpriteComponent(Entity* owner, const char* filePath);
+	SpriteComponent(Entity* owner, ComponentTypeID typeID, const char* filePath);
 	~SpriteComponent();
 
 	// Inherited via Component

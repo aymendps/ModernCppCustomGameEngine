@@ -1,6 +1,5 @@
 #pragma once
 #include <string>
-#include <iostream>
 #include <functional>
 #include "../../Core/EC/Component.h"
 #include "TransformComponent.h"
@@ -75,7 +74,7 @@ public:
 	static constexpr SDL_Color DEFAULT_CARD_BACKGROUND_COLOR = { 50, 50, 50, 255 };
 	static const std::unordered_map<CardCategory, SDL_Color> CARD_CATEGORY_COLORS;
 
-	CardComponent(Entity* owner, CardConfiguration cardConfiguration);
+	CardComponent(Entity* owner, ComponentTypeID typeID, CardConfiguration cardConfiguration);
 	~CardComponent();
 
 	// Inherited via Component

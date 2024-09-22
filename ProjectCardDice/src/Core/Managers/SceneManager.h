@@ -34,9 +34,9 @@ public:
 	/// <param name="...args">Constructor args of the initial scene</param>
 	template <typename T, typename... TArgs> requires SceneType<T>
 	void Init(TArgs&&... args) {
-		std::cout << "\033[35m" << "Creating the initial Scene..." << "\033[0m" << std::endl;
+		Logger::LogLine(LogType::SceneRelated, "Creating the initial Scene...");
 		_activeScene = std::make_unique<T>(std::forward<TArgs>(args)...);
-		std::cout << "\033[35m" << "Initial Scene of " << typeid(T).name() << " was created successfully!" << "\033[0m" << std::endl;
+		Logger::LogLine(LogType::SceneRelated, "Initial Scene of ", typeid(T).name(), " was created successfully!");
 
 		_activeScene->Init();
 	}
@@ -119,8 +119,7 @@ private:
 		// This way, the function can be called in the main thread
 		// This is needed because SDL Render functions can only work properly in the main thread
 		 _initNewScene = [&]() {
-			 std::cout << "\033[35m" << "Switching Scenes from " << typeid(*_activeScene).name() << " to " << typeid(T).name() 
-				 << "\033[0m" << std::endl;
+			 Logger::LogLine(LogType::SceneRelated, "Switching Scenes from ", typeid(*_activeScene).name(), " to ", typeid(T).name());
 			// Destroy the old scene
 			_activeScene->Destroy();
 			// Make sure all entities related to old scene are destroyed
@@ -128,7 +127,7 @@ private:
 			// Create the new scene
 			_activeScene.reset(new T(std::forward<Args>(args)...));
 			// Initialize the new scene
-			std::cout << "\033[35m" << "Initializing Scene: " << typeid(T).name() << "\033[0m" << std::endl;
+			Logger::LogLine(LogType::SceneRelated, "Initializing Scene: ", typeid(T).name());
 			_activeScene->Init();
 		};
 
