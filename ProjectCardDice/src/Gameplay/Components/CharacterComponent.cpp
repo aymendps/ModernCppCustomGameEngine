@@ -4,7 +4,7 @@
 #include "../../Core/Managers/TextureManager.h"
 #include "../../Game.h"
 
-CharacterComponent::CharacterComponent(Entity* owner, CharacterConfiguration configuration) : Component(owner), _configuration{ configuration }, _isDead{ false }, _transform{ nullptr },
+CharacterComponent::CharacterComponent(Entity* owner, ComponentTypeID typeID, CharacterConfiguration configuration) : Component(owner, typeID), _configuration{ configuration }, _isDead{ false }, _transform{ nullptr },
 _destinationRect { 0, 0, 0, 0 }, _lastHealth { configuration.currentHealth }, _lastShield { configuration.currentShield }
 {
 }

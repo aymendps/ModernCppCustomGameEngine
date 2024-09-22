@@ -49,7 +49,7 @@ class Component
 	friend class Entity;
 
 public:
-	Component(Entity* owner);
+	Component(Entity* owner, ComponentTypeID typeID);
 	virtual ~Component() = default;
 
 	/// <summary>
@@ -74,8 +74,35 @@ public:
 	/// </summary>
 	virtual void Render() = 0;
 
+	/// <summary>
+	/// Returns the entity that owns this component.
+	/// </summary>
+	/// <returns>A pointer to the entity that owns this component</returns>
+	Entity* GetOwner() const { return _owner; }
+
+	/// <summary>
+	/// Returns the unique ID that this component type is associated with.
+	/// </summary>
+	ComponentTypeID GetTypeID() const { return _typeID; }
+
+	/// <summary>
+	/// Returns whether or not the component is enabled. When disabled, the component is not updated or rendered and does not handle events.
+	/// </summary>
+	/// <returns>True if the component is enabled, false otherwise</returns>
+	bool IsEnabled() const { return _enabled; }
+
+	/// <summary>
+	/// Sets whether or not the component is enabled. When disabled, the component is not updated or rendered and does not handle events.
+	/// </summary>
+	/// <param name="enabled">True to enable the component, false to disable it</param>
+	void SetEnabled(bool enabled) { _enabled = enabled; }
+
 protected:
 	// The entity that owns this component, and possibly other components.
 	Entity* const _owner;
+	// The unique ID that this component type is associated with.
+	const ComponentTypeID _typeID;
+	// Whether the component is enabled or not. When disabled, the component is not updated or rendered and does not handle events.
+	bool _enabled;
 };
 

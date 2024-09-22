@@ -1,10 +1,10 @@
 #include "TransformComponent.h"
 
-TransformComponent::TransformComponent(Entity* owner) : Component(owner), position {0, 0}, size {0, 0}, scale {1}
+TransformComponent::TransformComponent(Entity* owner, ComponentTypeID typeID) : Component(owner, typeID), position {0, 0}, size {0, 0}, scale {1}
 {
 }
 
-TransformComponent::TransformComponent(Entity* owner, float x, float y, float w, float h, float scale) : Component(owner), position {x, y}, size {w, h}, scale {scale}
+TransformComponent::TransformComponent(Entity* owner, ComponentTypeID typeID, float x, float y, float w, float h, float scale) : Component(owner, typeID), position {x, y}, size {w, h}, scale {scale}
 {
 }
 

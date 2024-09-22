@@ -7,21 +7,27 @@ Entity::Entity(const std::string& uniqueName) : _uniqueName{ uniqueName }, _isAc
 void Entity::HandleEvents(SDL_Event& event)
 {
 	for (auto& component : _components) {
-		component->HandleEvents(event);
+		if (component->IsEnabled()) {
+			component->HandleEvents(event);
+		}
 	}
 }
 
 void Entity::Update(const float deltaTime)
 {
 	for (auto& component : _components) {
-		component->Update(deltaTime);
+		if(component->IsEnabled()) {
+			component->Update(deltaTime);
+		}
 	}
 }
 
 void Entity::Render()
 {
 	for (auto& component : _components) {
-		component->Render();
+		if (component->IsEnabled()) {
+			component->Render();
+		}
 	}
 }
 

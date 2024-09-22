@@ -52,15 +52,11 @@ Entity* EntityManager::CreateEntity(const std::string& uniqueName)
 
 Entity* EntityManager::GetEntity(const std::string& uniqueName) const
 {
-	// Find the entity with the given unique name in the map
-	auto entityEntry = _entitiesByUniqueName.find(uniqueName);
-
-	// If the entity was found, return a pointer to it
-	if (entityEntry != _entitiesByUniqueName.end()) {
-		return entityEntry->second.get();
+	// Check if an entity with the given unique name exists and return it if found, otherwise return nullptr
+	if (_entitiesByUniqueName.contains(uniqueName)) {
+		return _entitiesByUniqueName.at(uniqueName).get();
 	}
 
-	// If the entity was not found, return a nullptr
 	return nullptr;
 }
 
@@ -78,12 +74,9 @@ std::vector<Entity*> EntityManager::GetAllEntities() const
 
 bool EntityManager::DestroyEntity(const std::string& uniqueName)
 {
-	// Find the entity with the given unique name in the map
-	auto entityEntry = _entitiesByUniqueName.find(uniqueName);
-
-	// If the entity was found, mark it for deletion and return true, otherwise return false
-	if (entityEntry != _entitiesByUniqueName.end()) {
-		entityEntry->second->Destroy();
+	// Check if an entity with the given unique name exists and destroy it if found (returning true), otherwise return false
+	if (_entitiesByUniqueName.contains(uniqueName)) {
+		_entitiesByUniqueName[uniqueName]->Destroy();
 		return true;
 	}
 

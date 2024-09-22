@@ -13,7 +13,7 @@ struct CharacterConfiguration {
 class CharacterComponent : public Component
 {
 public:
-	CharacterComponent(Entity* owner, CharacterConfiguration configuration);
+	CharacterComponent(Entity* owner, ComponentTypeID typeID, CharacterConfiguration configuration);
 	~CharacterComponent();
 
 	// Inherited via Component

@@ -50,7 +50,7 @@ public:
 	/// </summary>
 	/// <typeparam name="T">The component's type</typeparam>
 	/// <typeparam name="...TArgs">The component's constructor arguments</typeparam>
-	/// <param name="...args">The component's constructor arguments excluding the entity (owner) pointer which is passed automatically</param>
+	/// <param name="...args">The component's constructor arguments excluding the owner entity and component type id which are passed automatically</param>
 	/// <returns>A pointer to the newly created component</returns>
 	template <typename T, typename... TArgs> requires ComponentType<T>
 	T* AddComponent(TArgs&&... args) 
@@ -66,7 +66,7 @@ public:
 		_componentSignatures[ID] = true;
 
 		// Create the new component, add it to related containers to keep track of it, and initialize it
-		_components.push_back(std::make_unique<T>(this, std::forward<TArgs>(args)...));
+		_components.push_back(std::make_unique<T>(this, ID, std::forward<TArgs>(args)...));
 		_componentIdToPointer[ID] = _components.back().get();
 		_components.back()->Init();	
 
@@ -83,6 +83,31 @@ public:
 	T* GetComponent() const
 	{
 		return static_cast<T*>(_componentIdToPointer[GetComponentTypeID<T>()]);
+	}
+
+	/// <summary>
+	/// Removes the component of the given type from the entity.
+	/// </summary>
+	/// <typeparam name="T">Type of the component to remove</typeparam>
+	/// <returns>True if the component was removed, false otherwise</returns>
+	template<typename T> requires ComponentType<T>
+	bool RemoveComponent()
+	{
+		if(!HasComponent<T>()) {
+			std::cout << "\033[31m" << "Cannot remove component because Entity '" << _uniqueName << "' does not have a component of type : " << typeid(T).name() << "\033[0m" << std::endl;
+			return false;
+		}
+
+		ComponentTypeID ID = GetComponentTypeID<T>();
+
+		_componentSignatures[ID] = false;
+		_componentIdToPointer[ID] = nullptr;
+
+		_components.erase(std::remove_if(_components.begin(), _components.end(), [ID](const std::unique_ptr<Component>& component) {
+			return component->GetTypeID() == ID;
+		}), _components.end());
+		
+		return true;
 	}
 
 private:

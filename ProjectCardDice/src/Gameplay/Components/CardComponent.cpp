@@ -18,7 +18,7 @@ const std::unordered_map<CardCategory, SDL_Color> CardComponent::CARD_CATEGORY_C
 	{ CardCategory::NEUTRAL, { 200, 200, 200, 255 } }
 };
 
-CardComponent::CardComponent(Entity* owner, CardConfiguration cardConfiguration) : Component(owner), _cardConfiguration { cardConfiguration }, _transform { nullptr }, 
+CardComponent::CardComponent(Entity* owner, ComponentTypeID typeID, CardConfiguration cardConfiguration) : Component(owner, typeID), _cardConfiguration { cardConfiguration }, _transform { nullptr },
 _destinationRect { 0, 0, 0, 0 }, _cardCategoryColor { 120, 120, 120, 255 }
 {
 }
@@ -30,7 +30,6 @@ CardComponent::~CardComponent()
 void CardComponent::Init()
 {
 	std::cout << *this << std::endl;
-
 	_cardCategoryColor = CARD_CATEGORY_COLORS.at(_cardConfiguration.cardCategory);
 
 	// Initialize transform component

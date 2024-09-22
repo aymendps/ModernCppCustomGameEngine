@@ -4,6 +4,7 @@
 #include "../../Game.h"
 #include "../Components/CharacterComponent.h"
 #include "../../Core/Managers/EntityManager.h"
+#include "../Components/CardComponent.h"
 
 void TestScene2::Init()
 {
@@ -41,32 +42,74 @@ void TestScene2::HandleEvents(SDL_Event& event)
 	case SDL_KEYDOWN:
 		switch (event.key.keysym.sym)
 		{
-		case SDLK_s:
-			EntityManager::GetInstance().GetEntity("Enemy 2")->GetComponent<CharacterComponent>()->TakeDamage(7);
-			break;
-		case SDLK_r:
-			EntityManager::GetInstance().GetEntity("Enemy 2")->GetComponent<CharacterComponent>()->HealDamage(7);
-			break;
-		case SDLK_e:
-			EntityManager::GetInstance().GetEntity("Enemy 2")->GetComponent<CharacterComponent>()->AddShield(10);
-			break;
-		case SDLK_z:
-			EntityManager::GetInstance().GetEntity("Enemy 2")->GetComponent<CharacterComponent>()->RemoveShield(10);
-			break;
-		default:
+		case SDLK_b:
+		{
+			auto y = GetEntity("Background")->GetComponent<SpriteComponent>();
+			if (y) y->SetEnabled(!y->IsEnabled());
 			break;
 		}
-		break;
-	default:
+		case SDLK_n:
+		{
+			auto y = GetEntity("Background");
+			if (y->GetComponent<SpriteComponent>()) 
+			{
+				y->RemoveComponent<SpriteComponent>();
+			}
+			else 
+			{
+				y->AddComponent<SpriteComponent>("assets/ignore/battleback1.png");
+			}
+			break;
+		}
+		case SDLK_x: 
+		{
+			DestroyEntitiesWithComponent<CharacterComponent>();
+			break;
+		}
+		case SDLK_s:
+		{
+			if (auto y = GetEntity("Enemy 2")) {
+				y->GetComponent<CharacterComponent>()->TakeDamage(7);
+			}
+			break;
+		}
+		case SDLK_r:
+		{
+			if (auto y = GetEntity("Enemy 2")) {
+				y->GetComponent<CharacterComponent>()->HealDamage(7);
+			}
+			break;
+		}
+		case SDLK_e:
+		{
+			if (auto y = GetEntity("Enemy 2")) {
+				y->GetComponent<CharacterComponent>()->AddShield(10);
+			}
+			break;
+		}
+		case SDLK_z:
+		{
+			if (auto y = GetEntity("Enemy 2")) {
+				y->GetComponent<CharacterComponent>()->RemoveShield(10);
+			}
+			break;
+		}
+		}
 		break;
 	}
 }
 
 void TestScene2::Update(const float deltaTime)
 {
-	for (auto& i : EntityManager::GetInstance().GetEntitiesWithComponent<CharacterComponent>())
+	std::vector<Entity*> characterEntities = EntityManager::GetInstance().GetEntitiesWithComponent<CharacterComponent>();
+	for (auto& i : characterEntities)
 	{
-		i->GetComponent<TransformComponent>()->scale+= 0.01f * deltaTime;
+		if (i->GetComponent<CharacterComponent>()->IsDead()) {
+			i->Destroy();
+		}
+		else {
+			i->GetComponent<TransformComponent>()->scale += 0.01f * deltaTime;
+		}
 	}
 
 	Scene::Update(deltaTime);
