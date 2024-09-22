@@ -1,4 +1,5 @@
 #include "EntityManager.h"
+#include "../Utils/Logger.h"
 
 void EntityManager::HandleEvents(SDL_Event& event)
 {
@@ -40,7 +41,7 @@ Entity* EntityManager::CreateEntity(const std::string& uniqueName)
 {
 	// Check if an entity with the given unique name already exists
 	if (auto checkEntity = GetEntity(uniqueName); checkEntity != nullptr) {
-		std::cout << "\033[31m" << "Entity with unique name '" << uniqueName << "' already exists!" << "\033[0m" << std::endl;
+		Logger::LogLine(LogType::Warning, "Entity with unique name '", uniqueName, "' already exists!");
 		return checkEntity;
 	}
 
@@ -85,7 +86,7 @@ bool EntityManager::DestroyEntity(const std::string& uniqueName)
 
 void EntityManager::DestroyAllEntities()
 {
-	std::cout << "Destroying all entities within the current Scene" << std::endl;
+	Logger::LogLine(LogType::EntityRelated, "Destroying all entities within the current Scene");
 	
 	for (auto& entityEntry : _entitiesByUniqueName) {
 		entityEntry.second->Destroy();

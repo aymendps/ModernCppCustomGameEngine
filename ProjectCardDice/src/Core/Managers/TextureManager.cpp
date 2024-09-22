@@ -1,5 +1,6 @@
 #include "TextureManager.h"
 #include "../../Game.h"
+#include "../Utils/Logger.h"
 
 const std::unordered_map<FontFamily, const char*> TextureManager::_fontPaths = {
 	{ FontFamily::Goudy, "assets/fonts/goudy.ttf" },
@@ -24,7 +25,7 @@ SDL_Font* const TextureManager::LoadFontTexture(FontFamily font, int fontSize, c
 	TTF_SetFontOutline(ttfOutline, outlineSize);
 
 	if (ttfFont == nullptr || ttfOutline == nullptr) {
-		std::cout << "\033[31m" << "Failed to load font " << _fontPaths.at(font) << " with reason: " << TTF_GetError() << "\033[0m" << std::endl;
+		Logger::LogLine(LogType::Error, "Failed to load font ", _fontPaths.at(font), " with reason: ", TTF_GetError());
 		return nullptr;
 	}
 

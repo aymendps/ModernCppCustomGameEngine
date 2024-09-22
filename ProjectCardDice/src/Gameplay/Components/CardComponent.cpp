@@ -29,7 +29,6 @@ CardComponent::~CardComponent()
 
 void CardComponent::Init()
 {
-	std::cout << *this << std::endl;
 	_cardCategoryColor = CARD_CATEGORY_COLORS.at(_cardConfiguration.cardCategory);
 
 	// Initialize transform component

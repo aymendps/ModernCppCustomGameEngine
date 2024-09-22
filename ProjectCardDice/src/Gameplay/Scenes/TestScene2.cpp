@@ -111,7 +111,6 @@ void TestScene2::Update(const float deltaTime)
 			i->GetComponent<TransformComponent>()->scale += 0.01f * deltaTime;
 		}
 	}
-
 	Scene::Update(deltaTime);
 }
 

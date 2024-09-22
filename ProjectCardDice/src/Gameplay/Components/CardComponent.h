@@ -1,6 +1,5 @@
 #pragma once
 #include <string>
-#include <iostream>
 #include <functional>
 #include "../../Core/EC/Component.h"
 #include "TransformComponent.h"

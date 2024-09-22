@@ -1,5 +1,4 @@
 #pragma once
-#include <algorithm>
 #include <iostream>
 
 class Vector2D
@@ -64,6 +63,8 @@ public:
 	Vector2D& Negate();
 
 	float Magnitude() const;
+
+	std::string ToString() const;
 
 	friend Vector2D operator+(const Vector2D& v1, const Vector2D& v2);
 	friend Vector2D operator-(const Vector2D& v1, const Vector2D& v2);

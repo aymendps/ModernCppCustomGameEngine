@@ -63,7 +63,6 @@ void SceneManager::UpdateFadeScreen(const float deltaTime)
 		if (_fadeScreenAlpha >= 255) {
 			_fadeScreenAlpha = 255;
 			_fadeDirection = SceneFadeDirection::None;
-			//std::cout << "Fade out complete" << std::endl;
 		}
 	}
 	else if (_fadeDirection == SceneFadeDirection::In) {
@@ -71,7 +70,6 @@ void SceneManager::UpdateFadeScreen(const float deltaTime)
 		if (_fadeScreenAlpha <= 0) {
 			_fadeScreenAlpha = 0;
 			_fadeDirection = SceneFadeDirection::None;
-			//std::cout << "Fade in complete" << std::endl;
 		}
 	}
 }

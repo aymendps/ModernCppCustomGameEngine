@@ -3,6 +3,7 @@
 #include "../../Core/Events/MouseEvents.h"
 #include "../../Core/Managers/TextureManager.h"
 #include "../../Game.h"
+#include "../../Core/Utils/Logger.h"
 
 CharacterComponent::CharacterComponent(Entity* owner, ComponentTypeID typeID, CharacterConfiguration configuration) : Component(owner, typeID), _configuration{ configuration }, _isDead{ false }, _transform{ nullptr },
 _destinationRect { 0, 0, 0, 0 }, _lastHealth { configuration.currentHealth }, _lastShield { configuration.currentShield }
@@ -30,35 +31,35 @@ void CharacterComponent::HandleEvents(SDL_Event& event)
 
 	if (MouseEvents::IsLeftClicked(event, _destinationRect))
 	{
-		std::cout << _configuration.name << " was left clicked!" << std::endl;
+		Logger::LogLine(GetOwner()->GetUniqueName(), LogType::Log, _configuration.name, " was left clicked!");
 	}
 
 	if (MouseEvents::IsRightClicked(event, _destinationRect))
 	{
-		std::cout << _configuration.name << " was right clicked!" << std::endl;
+		Logger::LogLine(GetOwner()->GetUniqueName(), LogType::Log, _configuration.name, " was right clicked!");
 	}
 
 	if (MouseEvents::IsLeftDoubleClicked(event, _destinationRect))
 	{
-		std::cout << _configuration.name << " was left double clicked!" << std::endl;
+		Logger::LogLine(GetOwner()->GetUniqueName(), LogType::Log, _configuration.name, " was left double clicked!");
 	}
 
 	if (MouseEvents::IsRightDoubleClicked(event, _destinationRect))
 	{
-		std::cout << _configuration.name << " was right double clicked!" << std::endl;
+		Logger::LogLine(GetOwner()->GetUniqueName(), LogType::Log, _configuration.name, " was right double clicked!");
 	}
 
 	Vector2D mousePosition;
 
 	if (MouseEvents::IsLeftPressed(event, _destinationRect, mousePosition))
 	{
-		std::cout << _configuration.name << " was left pressed at " << mousePosition << "!" << std::endl;
+		Logger::LogLine(GetOwner()->GetUniqueName(), LogType::Log, _configuration.name, " was left pressed at ", mousePosition, "!");
 		_transform->position.x = mousePosition.x - _destinationRect.w / 2;
 	}
 
 	if (MouseEvents::IsRightPressed(event, _destinationRect, mousePosition))
 	{
-		std::cout << _configuration.name << " was right pressed at " << mousePosition << "!" << std::endl;
+		Logger::LogLine(GetOwner()->GetUniqueName(), LogType::Log, _configuration.name, " was right pressed at ", mousePosition, "!");
 		_transform->position.y = mousePosition.y - _destinationRect.h / 2;
 	}
 }

@@ -149,6 +149,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Core\Utils\Logger.cpp" />
     <ClCompile Include="src\Gameplay\Components\EnemyComponent.cpp" />
     <ClCompile Include="src\Core\Events\MouseEvents.cpp" />
     <ClCompile Include="src\Gameplay\Components\CharacterComponent.cpp" />
@@ -177,6 +178,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Core\Utils\Logger.h" />
     <ClInclude Include="src\Gameplay\Components\EnemyComponent.h" />
     <ClInclude Include="src\Core\Events\MouseEvents.h" />
     <ClInclude Include="src\Gameplay\Components\CharacterComponent.h" />

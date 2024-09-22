@@ -1,8 +1,8 @@
 #pragma once
 #include <bitset>
-#include <iostream>
 #include <array>
 #include <concepts>
+#include "../Utils/Logger.h"
 
 class Component;
 
@@ -25,7 +25,7 @@ inline ComponentTypeID GetComponentTypeID() noexcept {
 	static bool ShouldLog = true;
 
 	if (ShouldLog) {
-		std::cout << "\033[36m" << "Registered component " << typeid(T).name() << " with unique ID of " << uniqueTypeID << "\033[0m" << std::endl;
+		Logger::LogLine(LogType::ComponentRelated, "Registered component ", typeid(T).name(), " with unique ID of ", uniqueTypeID);
 		ShouldLog = false;
 	}
 

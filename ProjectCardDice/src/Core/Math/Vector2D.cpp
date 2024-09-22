@@ -1,4 +1,6 @@
 #include "Vector2D.h"
+#include <string>
+#include <algorithm>
 
 Vector2D::Vector2D() : x { 0.0f }, y { 0.0f }
 {
@@ -102,6 +104,11 @@ float Vector2D::Magnitude() const
 	return sqrtf(powf(this->x, 2) + powf(this->y, 2));
 }
 
+std::string Vector2D::ToString() const
+{
+	return "(" + std::to_string(this->x) + ", " + std::to_string(this->y) + ")";
+}
+
 Vector2D operator+(const Vector2D& v1, const Vector2D& v2)
 {
 	return Vector2D(v1.x + v2.x, v1.y + v2.y);
@@ -188,6 +195,6 @@ Vector2D& Vector2D::operator=(const Vector2D& vec)
 
 std::ostream& operator<<(std::ostream& stream, const Vector2D& vec)
 {
-	stream << "(" << vec.x << ", " << vec.y << ")";
+	stream << vec.ToString();
 	return stream;
 }

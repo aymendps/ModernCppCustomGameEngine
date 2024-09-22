@@ -36,6 +36,12 @@ public:
 	/// </summary>
 	/// <returns>True if the entity is active, false otherwise</returns>
 	bool IsActive() const { return _isActive; }
+
+	/// <summary>
+	/// Returns the unique name of the entity that was used when creating it.
+	/// </summary>
+	/// <returns>A string containing the unique name of the entity</returns>
+	std::string GetUniqueName() const { return _uniqueName; }
 	
 	/// <summary>
 	/// Returns whether or not the entity has a component of the given type.
@@ -57,7 +63,7 @@ public:
 	{
 		// Check if the entity already has a component of the given type
 		if (HasComponent<T>()) {
-			std::cout << "\033[31m" << "Entity '" << _uniqueName << "' already has a component of type : " << typeid(T).name() << "\033[0m" << std::endl;
+			Logger::LogLine(LogType::Warning, "Entity '", _uniqueName, "' already has a component of type: ", typeid(T).name());
 			return GetComponent<T>();
 		}
 
@@ -94,7 +100,7 @@ public:
 	bool RemoveComponent()
 	{
 		if(!HasComponent<T>()) {
-			std::cout << "\033[31m" << "Cannot remove component because Entity '" << _uniqueName << "' does not have a component of type : " << typeid(T).name() << "\033[0m" << std::endl;
+			Logger::LogLine(LogType::ComponentRelated, "Cannot remove component because Entity '", _uniqueName, "' does not have a component of type : ", typeid(T).name());
 			return false;
 		}
 
